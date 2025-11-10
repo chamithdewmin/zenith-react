@@ -1,0 +1,246 @@
+.footer {
+  width: 100%;
+  background-color: var(--dark-blue-2);
+  padding: 100px 0 50px;
+}
+
+.footer-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 150px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 50px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 311px;
+}
+
+.footer-logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.3em;
+  text-transform: uppercase;
+  color: var(--white);
+  width: 230px;
+  height: 62px;
+}
+
+.footer-description {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4em;
+  color: var(--white);
+  max-width: 311px;
+}
+
+.footer-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 1.3em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links a {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.4em;
+  color: var(--white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--orange);
+}
+
+.footer-recent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.recent-project-image {
+  width: 213px;
+  height: 124px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: var(--grey-1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.footer-subscribe {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.subscribe-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.subscribe-input {
+  padding: 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--white);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.4em;
+  color: var(--grey-2);
+  width: 296px;
+}
+
+.subscribe-input::placeholder {
+  color: var(--grey-2);
+}
+
+.subscribe-input:focus {
+  outline: none;
+  border: 2px solid var(--orange);
+}
+
+.subscribe-btn {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1em;
+  letter-spacing: 0.095em;
+  text-transform: uppercase;
+  color: var(--white);
+  background-color: var(--orange);
+  border: none;
+  border-radius: 8px;
+  padding: 18px 54px;
+  cursor: pointer;
+  width: 296px;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.subscribe-btn:hover {
+  background-color: #d43a1a;
+}
+
+.footer-divider {
+  width: 100%;
+  height: 0;
+  border-top: 1px dashed var(--white);
+  margin-bottom: 50px;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copyright,
+.footer-designed {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1em;
+  letter-spacing: 0.095em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .footer-container {
+    padding: 0 50px;
+  }
+
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0 40px;
+  }
+
+  .footer-container {
+    padding: 0 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-logo {
+    font-size: 36px;
+  }
+
+  .subscribe-input,
+  .subscribe-btn {
+    width: 100%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-logo {
+    font-size: 28px;
+  }
+
+  .footer-heading {
+    font-size: 20px;
+  }
+}
+

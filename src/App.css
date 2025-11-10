@@ -1,0 +1,19 @@
+.App {
+  width: 100%;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+}
+
+/* Color Variables */
+:root {
+  --dark-blue-1: #121D50;
+  --dark-blue-2: #090E23;
+  --dark-blue-3: #060A17;
+  --blue-1: #0E33CB;
+  --blue-2: #1F45E4;
+  --orange: #EC4621;
+  --grey-1: #EDF0F3;
+  --grey-2: #5C6C7B;
+  --white: #FFFFFF;
+}
+

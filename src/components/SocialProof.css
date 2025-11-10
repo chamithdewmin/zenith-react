@@ -1,0 +1,53 @@
+.social-proof {
+  width: 100%;
+  background-color: var(--blue-2);
+  padding: 60px 0;
+  height: 246px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-proof-container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 150px;
+}
+
+.social-proof-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.social-proof-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1em;
+  letter-spacing: 0.095em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .social-proof-container {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .social-proof {
+    height: auto;
+    padding: 40px 0;
+  }
+
+  .social-proof-container {
+    padding: 0 20px;
+  }
+}
+
