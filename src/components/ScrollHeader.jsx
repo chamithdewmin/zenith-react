@@ -1,24 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logoLight from '../assets/logo-light.svg';
+import './ScrollHeader.css';
 
-const Header = () => {
+const ScrollHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const location = useLocation();
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  // Hide header on home page
-  if (location.pathname === '/') {
-    return null;
-  }
-
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const isActive = (path) => location.pathname === path;
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      // Show header when scrolled down more than 100px
+      setIsVisible(scrollPosition > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Check initial scroll position
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="hero-header transparent-header">
+    <header className={`scroll-header ${isVisible ? 'visible' : ''}`}>
       <div className="hero-header-content">
         {/* Logo */}
         <Link to="/" className="hero-logo">
@@ -45,4 +55,5 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default ScrollHeader;
+

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
@@ -16,19 +17,20 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-brand">
-            <h2 className="footer-logo">EKSPRESS</h2>
+            <h2 className="footer-logo">Digitro</h2>
             <p className="footer-description">
-              At FastGo, we believe in providing our clients with personalized
-              and efficient logistics solutions that meet their unique needs.
+              At Digitro, we believe in providing our clients with personalized
+              and efficient digital solutions that meet their unique needs.
             </p>
           </div>
           <div className="footer-navigation">
             <h3 className="footer-heading">NAVIGATION</h3>
             <ul className="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#contact">Contact Us</a></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>
+              <li><Link to="/blog">Blog</Link></li>
             </ul>
           </div>
           <div className="footer-recent">
@@ -58,7 +60,7 @@ const Footer = () => {
         </div>
         <div className="footer-divider"></div>
         <div className="footer-bottom">
-          <p className="footer-copyright">Copyright © 2023 Ekspress</p>
+          <p className="footer-copyright">Copyright © 2024 Digitro</p>
           <p className="footer-designed">Designed by TokoTema</p>
         </div>
       </div>
