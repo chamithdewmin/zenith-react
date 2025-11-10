@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import './Hero.css';
 
 const Hero = () => {
-  const [activeTab, setActiveTab] = useState('tracking');
-  const [trackingId, setTrackingId] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle tracking submission
-    console.log('Tracking ID:', trackingId);
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -19,14 +12,8 @@ const Hero = () => {
   return (
     <section className="hero" id="home">
       <div className="hero-background"></div>
-      <div className="hero-lottie-animation">
-        <iframe
-          src="https://lottie.host/embed/3f3171c1-f853-4b30-9b05-ded7756b906f/afPDfTRd1L.lottie"
-          title="Hero Animation"
-          className="lottie-iframe"
-          allow="autoplay"
-        ></iframe>
-      </div>
+
+      {/* Header */}
       <div className="hero-header">
         <div className="hero-header-content">
           <div className="hero-logo">EKSPRESS</div>
@@ -44,7 +31,10 @@ const Hero = () => {
           </button>
         </div>
       </div>
+
+      {/* Hero Content */}
       <div className="hero-content">
+        {/* Left side: text */}
         <div className="hero-left-section">
           <div className="hero-text">
             <div className="hero-title">
@@ -55,15 +45,11 @@ const Hero = () => {
             </div>
             <p className="hero-description">
               Simplify your shipping process and make it more efficient with
-              our cargo services. From start to finish, we'll handle
-              everything to ensure your cargo arrives safely.
+              our cargo services. From start to finish, we'll handle everything to ensure your cargo arrives safely.
             </p>
           </div>
           <div className="hero-fun-facts">
             <div className="fun-fact-item">
-              <div className="fun-fact-image">
-                <img src="https://via.placeholder.com/100x100/0E33CB/FFFFFF?text=26K" alt="Satisfied Clients" />
-              </div>
               <div className="fun-fact-content">
                 <h2 className="fun-fact-number">26 K</h2>
                 <p className="fun-fact-label">Satisfied Clients</p>
@@ -78,40 +64,15 @@ const Hero = () => {
             </div>
           </div>
         </div>
+
+        {/* Right side: Lottie animation */}
         <div className="hero-right-section">
-          <div className="tracking-form-box">
-            <div className="tracking-tabs">
-              <button
-                className={`tab ${activeTab === 'tracking' ? 'active' : ''}`}
-                onClick={() => setActiveTab('tracking')}
-              >
-                TRACKING
-              </button>
-              <button
-                className={`tab ${activeTab === 'rate' ? 'active' : ''}`}
-                onClick={() => setActiveTab('rate')}
-              >
-                RATE & SHIP
-              </button>
-            </div>
-            <div className="tracking-form-container">
-              <form className="tracking-form" onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  placeholder="TRACKING ID"
-                  value={trackingId}
-                  onChange={(e) => setTrackingId(e.target.value)}
-                  className="tracking-input"
-                />
-                <button type="submit" className="tracking-btn">
-                  TRACK
-                </button>
-              </form>
-              <p className="tracking-help">
-                See the tracking id on shipping document, <span className="help-link">Help</span>
-              </p>
-            </div>
-          </div>
+          <DotLottieReact
+            autoplay
+            loop
+            style={{ width: '500px', height: '500px' }}
+            src="https://lottie.host/ee5e348c-5b04-4529-ad8c-5a1d1c26183a/sbkr0ioOCO.lottie"
+          />
         </div>
       </div>
     </section>
@@ -119,4 +80,3 @@ const Hero = () => {
 };
 
 export default Hero;
-
