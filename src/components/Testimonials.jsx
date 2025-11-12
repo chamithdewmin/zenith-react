@@ -8,25 +8,25 @@ const Testimonials = () => {
     {
       id: 1,
       name: 'John Doe, Business Owner',
-      text: 'I have been using FastGo cargo logistic & transportation services for over a year now and I am extremely satisfied with their service. They are efficient, reliable, and always deliver on time. I highly recommend them to anyone in need of logistics services.',
+      text: 'I have been using Zenith Supply Chain Solutions logistic & transportation services for over a year now and I am extremely satisfied with their service. They are efficient, reliable, and always deliver on time. I highly recommend them to anyone in need of logistics services.',
       featured: true
     },
     {
       id: 2,
       name: 'Jane Smith, Freelance Consultant',
-      text: 'I was very impressed with FastGo handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.',
+      text: 'I was very impressed with Zenith Supply Chain Solutions handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.',
       featured: false
     },
     {
       id: 3,
       name: 'Michael Johnson, CEO',
-      text: 'I was very impressed with FastGo handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.',
+      text: 'I was very impressed with Zenith Supply Chain Solutions handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.',
       featured: false
     },
     {
       id: 4,
       name: 'Sarah Lee, Online Retailer',
-      text: 'I was very impressed with FastGo handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.',
+      text: 'I was very impressed with Zenith Supply Chain Solutions handling of my recent shipment. They went above and beyond to ensure my cargo arrived safely and on time. I will definitely be using their services again in the future.',
       featured: false
     }
   ];

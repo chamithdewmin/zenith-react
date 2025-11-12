@@ -44,9 +44,9 @@ const Hero = () => {
         <div className="hero-left-section">
           <div className="hero-text">
             <div className="hero-title">
-              <p className="hero-subheading">WE ARE BEST LOGISTIC COMPANY</p>
+              <p className="hero-subheading">Where Insight Meets Execution</p>
               <SplitText
-                text="STREAMLINE YOUR SHIPPING WITH OUR CARGO SERVICES"
+                text="Streamline Your Supply Chain with Australia’s"
                 className="hero-heading"
                 tag="h1"
                 delay={10}
@@ -62,8 +62,7 @@ const Hero = () => {
             </div>
 
             <p className="hero-description">
-              Simplify your shipping process and make it more efficient with our cargo services.
-              From start to finish, we'll handle everything to ensure your cargo arrives safely.
+            Zenith Supply Chain Solutions helps FMCG and liquor suppliers deliver smarter, data-driven replenishment, forecasting, and logistics, ensuring products stay on shelf when customers need them.
             </p>
             <div className="hero-cta-buttons">
               <Link to="/contact" className="hero-cta-primary">
@@ -80,7 +79,7 @@ const Hero = () => {
           <div className="hero-fun-facts">
             <div className="fun-fact-item">
               <div className="fun-fact-content">
-                <h2 className="fun-fact-number">26K</h2>
+                <h2 className="fun-fact-number">10K</h2>
                 <p className="fun-fact-label">Satisfied Clients</p>
               </div>
             </div>
@@ -89,7 +88,7 @@ const Hero = () => {
 
             <div className="fun-fact-item">
               <div className="fun-fact-content">
-                <h2 className="fun-fact-number">12 +</h2>
+                <h2 className="fun-fact-number">5 +</h2>
                 <p className="fun-fact-label">Years of Experience</p>
               </div>
             </div>

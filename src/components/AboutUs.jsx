@@ -12,15 +12,20 @@ const AboutUs = () => {
             <div className="about-us-title">
               <p className="about-us-subheading">ABOUT US</p>
               <h2 className="about-us-heading">
-                Empowering Your Business with Tailored Logistics Solutions
+                Empowering Your Business with Smarter Supply Solutions
               </h2>
             </div>
             <p className="about-us-description">
-              At FastGo, we believe in providing our clients with
-              personalized and efficient logistics solutions that meet their
-              unique needs. With years of experience and a team of experts,
-              we are dedicated to empowering your business with seamless
-              shipping experiences.
+          <div>
+            <p>
+              Zenith Supply Chain Solutions is a Melbourne-based team
+              transforming Australia’s FMCG and liquor businesses’ vendor replenishment.
+            </p>
+            <p>
+              We combine retailer experience, data analytics, and hands-on execution
+              to manage forecasting, replenishment, and logistics seamlessly.
+            </p>
+          </div>
             </p>
             <Link to="/about" className="btn-learn-more">LEARN MORE</Link>
           </div>

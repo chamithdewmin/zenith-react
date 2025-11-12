@@ -30,51 +30,27 @@ const AboutUs = () => {
   // Company achievements and milestones
   const stats = [
     { 
-      value: '20+', 
+      value: '5+', 
       label: 'Years of Experience',
       description: 'Industry leadership and expertise'
     },
     { 
-      value: '1,000+', 
+      value: '100+', 
       label: 'Projects Completed',
       description: 'Successful implementations'
     },
     { 
-      value: '300+', 
+      value: '10k+', 
       label: 'Satisfied Clients',
       description: 'Growing partnerships'
     },
     { 
-      value: '64', 
+      value: '20', 
       label: 'Team Members',
       description: 'Expert professionals'
     },
   ];
-
-  // Core organizational values
-  const values = [
-    {
-      icon: '🎯',
-      title: 'Excellence',
-      description: 'We strive for excellence in every project, ensuring the highest quality standards and meticulous attention to detail in all deliverables.'
-    },
-    {
-      icon: '💡',
-      title: 'Innovation',
-      description: 'We embrace innovation and stay ahead of industry trends to provide cutting-edge solutions that drive competitive advantage.'
-    },
-    {
-      icon: '🤝',
-      title: 'Integrity',
-      description: 'We conduct business with honesty, transparency, and ethical practices in all our interactions and relationships.'
-    },
-    {
-      icon: '👥',
-      title: 'Client Focus',
-      description: 'Our clients\' success is our priority. We listen, understand, and deliver solutions that exceed expectations.'
-    },
-  ];
-
+  
   return (
     <div className="page">
       <Header />
