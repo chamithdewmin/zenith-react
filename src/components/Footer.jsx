@@ -27,11 +27,11 @@ const Footer = () => {
           <div className="footer-navigation">
             <h3 className="footer-heading">Useful Links</h3>
             <ul className="footer-links">
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/about">About Us</Link></li>
-              <li><Link to="/services">Services</Link></li>
-              <li><Link to="/contact">Contact Us</Link></li>
-              <li><Link to="/blog">Blog</Link></li>
+              <li><Link to="/#home">Home</Link></li>
+              <li><Link to="/#about">About Us</Link></li>
+              <li><Link to="/#services">Services</Link></li>
+              <li><Link to="/#how-it-works">How It Works</Link></li>
+              <li><Link to="/#testimonials">Testimonials</Link></li>
             </ul>
           </div>
           <div className="footer-recent">
@@ -46,7 +46,6 @@ const Footer = () => {
                 <li><Link to="/services">Reporting &amp; Analytics</Link></li>
               </ul>
             </div>
-          
           </div>
           <div className="footer-contact">
             <h3 className="footer-heading">CONTACT US</h3>

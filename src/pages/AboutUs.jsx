@@ -3,6 +3,7 @@ import Header from '../components/Header';
 import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 import './Page.css';
 
 const AboutUs = () => {
@@ -86,6 +87,7 @@ const AboutUs = () => {
         </section>
       </div>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };

@@ -5,16 +5,18 @@ import Services from '../components/Services';
  import HowItWorks from '../components/HowItWorks';
 import Testimonials from '../components/Testimonials';
 import Footer from '../components/Footer';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 
 const Home = () => {
   return (
     <div className="App">
-      <Hero />
-      <AboutUs />
-      <Services />
-      <HowItWorks />
-      <Testimonials />
+      <div id="home"><Hero /></div>
+      <div id="about"><AboutUs /></div>
+      <div id="services"><Services /></div>
+      <div id="how-it-works"><HowItWorks /></div>
+      <div id="testimonials"><Testimonials /></div>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };

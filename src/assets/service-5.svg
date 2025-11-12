@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" fill="none">
+  <rect width="800" height="600" rx="20" fill="#F7F3FF"/>
+  <g transform="translate(110 110)" fill="#0077b6">
+    <rect x="0" y="0" width="580" height="380" rx="14" fill="#0077b6" opacity="0.06"/>
+    <path d="M140 280h320v-30H140z" fill="#0077b6" opacity="0.08"/>
+  </g>
+  <text x="50%" y="88%" text-anchor="middle" font-family="Arial" font-size="20" fill="#005f8f">Training Illustration</text>
+</svg>

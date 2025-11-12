@@ -1,13 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Header from '../components/Header';
 import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
+import ScrollToTopButton from '../components/ScrollToTopButton';
 import './ServicesPage.css';
+import svc1 from '../assets/services1.jpg';
+import svc2 from '../assets/services2.jpg';
+import svc3 from '../assets/services3.jpg';
+import svc4 from '../assets/services4.jpg';
+import svc5 from '../assets/services5.jpg';
+import svc6 from '../assets/services6.jpg';
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState(null);
-  const serviceRefs = useRef({});
 
   const services = [
     {
@@ -151,18 +157,25 @@ Our analytics platform transforms raw data into actionable insights. Whether you
   ];
 
   const toggleService = (serviceId) => {
-    if (expandedService === serviceId) {
-      setExpandedService(null);
-    } else {
-      setExpandedService(serviceId);
-      // Smooth scroll to the expanded service
-      setTimeout(() => {
-        const element = serviceRefs.current[serviceId];
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    }
+    setExpandedService(serviceId);
+  };
+
+  const getBullets = (text) => {
+    if (!text) return [];
+    return text
+      .split('\n')
+      .map((l) => l.trim())
+      .filter((l) => l.startsWith('•'))
+      .map((l) => l.replace(/^•\s?/, '').trim());
+  };
+
+  const images = {
+    1: svc1,
+    2: svc2,
+    3: svc3,
+    4: svc4,
+    5: svc5,
+    6: svc6,
   };
 
   return (
@@ -176,59 +189,91 @@ Our analytics platform transforms raw data into actionable insights. Whether you
       <div className="page-content">
         <section className="services-page-section">
           <div className="services-page-container">
-            <div className="services-list">
-              {services.map((service) => (
-                <div
-                  key={service.id}
-                  ref={(el) => (serviceRefs.current[service.id] = el)}
-                  className={`service-item ${expandedService === service.id ? 'expanded' : ''}`}
-                >
-                  <div 
-                    className="service-item-header"
-                    onClick={() => toggleService(service.id)}
+            <div className="services-intro">
+              <p className="services-subheading">Explore our comprehensive solutions designed to optimize your retail operations</p>
+            </div>
+            <div className="services-list-alt">
+              {services.map((service, idx) => {
+                const bullets = getBullets(service.detailedDescription);
+                const isReverse = idx % 2 === 1;
+                return (
+                  <div
+                    key={service.id}
+                    className={`service-row ${isReverse ? 'reverse' : ''}`}
                   >
-                    <div className="service-item-icon">{service.icon}</div>
-                    <h3 className="service-item-title">{service.title}</h3>
-                    <button 
-                      className="service-learn-more-btn-page"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleService(service.id);
-                      }}
-                    >
-                      Learn More
-                    </button>
-                    <div className="service-expand-icon">
-                      <svg 
-                        width="24" 
-                        height="24" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                        className={expandedService === service.id ? 'rotated' : ''}
-                      >
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                      </svg>
+                    <div className="service-image">
+                      <img src={images[service.id]} alt={`${service.title} illustration`} />
+                    </div>
+                    <div className="service-content">
+                      <h3 className="service-title">{service.title}</h3>
+                      <p className="service-desc">{service.shortDescription}</p>
+                      {bullets && bullets.length > 0 && (
+                        <ul className="service-bullets">
+                          {bullets.slice(0, 5).map((b, i) => (
+                            <li key={i}>{b}</li>
+                          ))}
+                        </ul>
+                      )}
                     </div>
                   </div>
-                  <div className="service-item-content">
-                    <p className="service-item-short">{service.shortDescription}</p>
-                    {expandedService === service.id && (
-                      <div className="service-item-details">
-                        <p className="service-item-detailed">{service.detailedDescription}</p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
+
+        {/* Modal Overlay */}
+        {expandedService && (
+          <div 
+            className="service-modal-overlay"
+            onClick={() => setExpandedService(null)}
+          >
+            <div 
+              className="service-modal-content"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button 
+                className="service-modal-close"
+                onClick={() => setExpandedService(null)}
+                aria-label="Close modal"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+              </button>
+              <div className="service-modal-header">
+                <div className="service-modal-icon">
+                  {services.find(s => s.id === expandedService)?.icon}
+                </div>
+                <div>
+                  <h2 className="service-modal-title">
+                    {services.find(s => s.id === expandedService)?.title}
+                  </h2>
+                  <p className="service-modal-subtitle">
+                    {services.find(s => s.id === expandedService)?.shortDescription}
+                  </p>
+                </div>
+              </div>
+              <div className="service-modal-body">
+                <p className="service-modal-details">
+                  {services.find(s => s.id === expandedService)?.detailedDescription}
+                </p>
+              </div>
+              <div className="service-modal-footer">
+                <button 
+                  className="service-modal-action-btn"
+                  onClick={() => setExpandedService(null)}
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
       <Footer />
+      <ScrollToTopButton />
     </div>
   );
 };
