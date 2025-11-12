@@ -1,19 +1,7 @@
+// SocialProof removed — stub left to avoid import errors while code is updated.
 import React from 'react';
-import './SocialProof.css';
 
-const SocialProof = () => {
-  return (
-    <section className="social-proof">
-      <div className="social-proof-container">
-        <div className="social-proof-content">
-          <p className="social-proof-text">
-            Trusted by leading companies worldwide
-          </p>
-        </div>
-      </div>
-    </section>
-  );
-};
+const SocialProof = () => null;
 
 export default SocialProof;
 

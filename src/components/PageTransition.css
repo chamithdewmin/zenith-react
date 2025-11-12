@@ -1,0 +1,27 @@
+.page-transition-wrapper {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  min-height: 100vh;
+  will-change: opacity, transform;
+}
+
+.page-transition-wrapper.content-ready {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Prevent flash of unstyled content */
+.page-transition-wrapper:not(.content-ready) {
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.page-transition-wrapper.content-ready {
+  visibility: visible;
+  pointer-events: auto;
+  opacity: 1;
+}
+

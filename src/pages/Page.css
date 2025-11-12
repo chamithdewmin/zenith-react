@@ -456,7 +456,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: var(--blue-1);
   border: none;
   border-radius: 8px;
   padding: 18px 54px;
@@ -466,8 +466,9 @@
 }
 
 .form-submit-btn:hover {
-  background-color: #d43a1a;
+  background-color: var(--blue-2);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 51, 203, 0.4);
 }
 
 /* Blog Grid */

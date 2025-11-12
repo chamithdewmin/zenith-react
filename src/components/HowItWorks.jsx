@@ -1,5 +1,6 @@
 import React from 'react';
 import './HowItWorks.css';
+import howItWorksImage from '../assets/howit-image.jpg';
 
 const HowItWorks = () => {
   const steps = [
@@ -43,7 +44,7 @@ const HowItWorks = () => {
           </div>
           <div className="how-it-works-image">
             <div className="image-placeholder">
-              <img src="https://via.placeholder.com/506x336/121D50/FFFFFF?text=How+It+Works" alt="How It Works" />
+              <img src={howItWorksImage} alt="How It Works" />
             </div>
           </div>
         </div>

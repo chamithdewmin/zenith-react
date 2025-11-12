@@ -2,35 +2,57 @@
   width: 100%;
   background-color: var(--blue-2);
   padding: 60px 0;
-  height: 246px;
   display: flex;
   align-items: center;
   justify-content: center;
+  /* ensure it sits above other sections cleanly */
+  box-sizing: border-box;
 }
 
 .social-proof-container {
   max-width: 1440px;
   width: 100%;
-  padding: 0 150px;
+  padding: 0 120px;
+  margin: 0 auto;
 }
 
 .social-proof-content {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 28px;
-  flex-wrap: wrap;
+  text-align: center;
 }
 
 .social-proof-text {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 1em;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.2em;
   letter-spacing: 0.095em;
   text-transform: uppercase;
   color: var(--white);
-  text-align: center;
+  margin: 0;
+}
+
+.social-proof-loop {
+  width: 100%;
+  max-width: 980px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.social-proof-loop .logoloop {
+  width: 100%;
+}
+
+/* Make logo loop items visible on the dark background */
+.social-proof-loop .logoloop__item,
+.social-proof-loop .logoloop__item img {
+  color: var(--white);
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
 }
 
 /* Responsive Design */
@@ -42,7 +64,6 @@
 
 @media (max-width: 768px) {
   .social-proof {
-    height: auto;
     padding: 40px 0;
   }
 

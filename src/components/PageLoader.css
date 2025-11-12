@@ -1,0 +1,92 @@
+.page-loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-in;
+  backdrop-filter: blur(3px);
+}
+
+.page-loader-overlay.fade-out {
+  animation: fadeOut 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.page-loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* PuffLoader Styles */
+.puff-loader {
+  position: relative;
+  display: inline-block;
+}
+
+.puff-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-color: var(--puff-color, #0E33CB);
+  opacity: 0.6;
+}
+
+.puff-circle-1 {
+  width: 100%;
+  height: 100%;
+  animation: puff-pulse 1.5s ease-in-out infinite;
+}
+
+.puff-circle-2 {
+  width: 70%;
+  height: 70%;
+  animation: puff-pulse 1.5s ease-in-out infinite 0.2s;
+}
+
+.puff-circle-3 {
+  width: 40%;
+  height: 40%;
+  animation: puff-pulse 1.5s ease-in-out infinite 0.4s;
+}
+
+@keyframes puff-pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+}
+

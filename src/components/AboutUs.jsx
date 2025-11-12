@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import aboutImage from '../assets/about-image.jpg';
 import './AboutUs.css';
 
 const AboutUs = () => {
@@ -20,22 +22,11 @@ const AboutUs = () => {
               we are dedicated to empowering your business with seamless
               shipping experiences.
             </p>
-            <button className="btn-learn-more">LEARN MORE</button>
+            <Link to="/about" className="btn-learn-more">LEARN MORE</Link>
           </div>
           <div className="about-us-image">
             <div className="image-placeholder">
-              <img src="https://via.placeholder.com/506x410/121D50/FFFFFF?text=About+Us" alt="About Us" />
-            </div>
-            <div className="ornament-box">
-              <div className="ornament-icon">
-                <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect width="59" height="59" rx="8" fill="#0E33CB"/>
-                </svg>
-              </div>
-              <div className="award-badge">
-                <div className="award-label">AWARDS WINNING</div>
-                <div className="award-number">647 +</div>
-              </div>
+              <img src={aboutImage} alt="About Us" />
             </div>
           </div>
         </div>

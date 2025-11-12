@@ -177,8 +177,8 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--white);
-  background-color: var(--dark-blue-1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: var(--blue-1);
+  border: 2px solid var(--blue-1);
   border-radius: 24px;
   padding: 12px 24px;
   text-decoration: none;
@@ -187,8 +187,10 @@
 }
 
 .page-hero-contact-btn:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background-color: var(--blue-2);
+  border-color: var(--blue-2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(14, 51, 203, 0.4);
 }
 
 .page-hero-menu-toggle {
