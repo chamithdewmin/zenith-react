@@ -15,7 +15,7 @@
   flex-direction: column;
   gap: 16px;
   margin-bottom: 80px;
-  max-width: 506px;
+  max-width: 606px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -38,8 +38,6 @@
   line-height: 1.3em;
   text-transform: uppercase;
   color: var(--dark-blue-1);
-  max-width: none;
-  white-space: nowrap;
 }
 
 /* Carousel Container */
@@ -47,7 +45,6 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 40px;
   justify-content: center;
 }
 
@@ -55,25 +52,11 @@
   display: flex;
   gap: 40px;
   align-items: center;
-  max-width: 1000px;
+  justify-content: center;
   width: 100%;
 }
 
-.carousel-image {
-  flex: 0 0 480px;
-  height: 340px;
-  border-radius: 12px;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--dark-blue-1) 0%, var(--dark-blue-2) 100%);
-}
-
-.carousel-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
+/* Review Card */
 .carousel-card {
   background-color: var(--white);
   border-radius: 12px;
@@ -82,10 +65,9 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .carousel-card::before {
@@ -122,7 +104,6 @@
 
 .testimonial-text {
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
   font-size: 16px;
   line-height: 1.5em;
   color: var(--dark-blue-1);
@@ -140,7 +121,37 @@
   margin-top: auto;
 }
 
-/* Carousel Arrows */
+/* Review Box Icon */
+.review-box-corner {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 6px;
+}
+
+.brand-icon-only {
+  width: 50px;
+  height: 50px;
+}
+
+/* Image */
+.carousel-image {
+  flex: 0 0 480px;
+  height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.carousel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Arrows */
 .carousel-arrow {
   position: absolute;
   top: 50%;
@@ -151,14 +162,13 @@
   height: 48px;
   border-radius: 8px;
   font-size: 28px;
-  font-weight: 300;
   color: var(--dark-blue-1);
   cursor: pointer;
-  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 10;
+  transition: all 0.3s ease;
 }
 
 .carousel-arrow:hover {
@@ -167,14 +177,14 @@
 }
 
 .carousel-prev {
-  left: -60px;
+  left: -80px;
 }
 
 .carousel-next {
-  right: -60px;
+  right: -80px;
 }
 
-/* Carousel Dots */
+/* Dots */
 .carousel-dots {
   position: absolute;
   bottom: -60px;
@@ -182,7 +192,6 @@
   transform: translateX(-50%);
   display: flex;
   gap: 12px;
-  justify-content: center;
 }
 
 .dot {
@@ -205,126 +214,147 @@
   transform: scale(1.2);
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 1200px) {
-  .testimonials-container {
-    padding: 0 50px;
+  .testimonials-container { 
+    padding: 0 80px; 
   }
-
-  .carousel-content {
-    flex-direction: column;
-    gap: 30px;
+  
+  .carousel-prev {
+    left: -60px;
   }
-
-  .carousel-image {
-    flex: 0 0 100%;
-    height: 300px;
-  }
-
-  .carousel-prev,
+  
   .carousel-next {
-    position: static;
-    transform: none;
-    margin: 0 10px;
+    right: -60px;
   }
+}
 
-  .testimonials-carousel {
-    flex-direction: column;
+@media (max-width: 992px) {
+  .testimonials-container { 
+    padding: 0 40px; 
   }
-
-  .carousel-dots {
-    position: relative;
-    bottom: auto;
-    transform: none;
-    margin-top: 30px;
+  
+  .carousel-prev {
+    left: -50px;
+  }
+  
+  .carousel-next {
+    right: -50px;
   }
 }
 
 @media (max-width: 768px) {
-  .testimonials {
-    padding: 60px 0;
+  .testimonials { 
+    padding: 60px 0; 
   }
-
-  .testimonials-container {
-    padding: 0 20px;
+  
+  .testimonials-container { 
+    padding: 0 20px; 
   }
-
-  .testimonials-heading {
-    font-size: 36px;
+  
+  .testimonials-title {
+    margin-bottom: 50px;
   }
-
-  .carousel-content {
-    gap: 20px;
+  
+  .testimonials-heading { 
+    font-size: 36px; 
   }
-
-  .carousel-image {
-    height: 250px;
+  
+  .carousel-content { 
+    flex-direction: column;
+    gap: 0;
+    position: relative;
   }
-
-  .carousel-card {
-    padding: 30px 24px;
+  
+  /* Hide image on mobile */
+  .carousel-image { 
+    display: none;
+  }
+  
+  .carousel-card { 
+    width: 100%;
+    padding: 30px 24px 60px;
     min-height: auto;
   }
-
+  
+  /* Hide arrows on mobile */
   .carousel-arrow {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
+    display: none;
   }
-
+  
+  /* Move dots inside card at bottom */
+  .carousel-dots { 
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
   .testimonials-carousel {
-    gap: 20px;
+    padding-bottom: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .testimonials-heading {
-    font-size: 28px;
+  .testimonials {
+    padding: 40px 0;
   }
-
+  
+  .testimonials-container {
+    padding: 0 16px;
+  }
+  
+  .testimonials-title {
+    margin-bottom: 40px;
+  }
+  
+  .testimonials-heading { 
+    font-size: 28px; 
+  }
+  
   .carousel-content {
-    flex-direction: column;
+    gap: 0;
   }
-
-  .carousel-image {
-    height: 200px;
+  
+  /* Hide image on mobile */
+  .carousel-image { 
+    display: none;
   }
-
-  .carousel-card {
-    padding: 24px 16px;
+  
+  .carousel-card { 
+    padding: 24px 16px 50px;
   }
-
-  .carousel-arrow {
-    width: 36px;
-    height: 36px;
+  
+  .testimonial-text {
+    font-size: 15px;
+  }
+  
+  .testimonial-name {
+    font-size: 14px;
+  }
+  
+  .star {
     font-size: 20px;
   }
-
-  .dot {
-    width: 10px;
-    height: 10px;
+  
+  .brand-icon-only {
+    width: 40px;
+    height: 40px;
   }
-}
-
-/* Review Box */
-.review-box-corner {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #ffffff;
-  border-radius: 8px;
-  padding: 6px;
-}
-
-.carousel-card {
-  position: relative;
-}
-
-.brand-icon-only {
-  width: 50px;
-  height: 50px;
-  display: block;
+  
+  .review-box-corner {
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+  }
+  
+  .dot { 
+    width: 10px; 
+    height: 10px; 
+  }
+  
+  .carousel-dots {
+    bottom: 15px;
+    gap: 10px;
+  }
 }

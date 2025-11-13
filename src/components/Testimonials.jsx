@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Testimonials.css';
-import feedbackImage from '../assets/feedback-image.jpg';
+import feedbackImage from '../assets/feedback-image.png';
 import flaticonIcon from '../assets/google.png';
 
 const Testimonials = () => {
@@ -37,7 +37,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    }, 5000);
+    }, 3500);
     return () => clearInterval(interval);
   }, [testimonials.length]);
 
@@ -71,9 +71,7 @@ const Testimonials = () => {
           <h2 className="testimonials-heading">What Our Clients Say</h2>
         </div>
         <div className="testimonials-carousel">
-          <button className="carousel-arrow carousel-prev" onClick={goToPrev} aria-label="Previous testimonial">
-            ‹
-          </button>
+         
           
           <div className="carousel-content">
             <div className="carousel-image">
@@ -89,10 +87,14 @@ const Testimonials = () => {
               </div>
           </div>
 
+            <button className="carousel-arrow carousel-prev" onClick={goToPrev} aria-label="Previous testimonial">
+            ‹
+          </button>
+
           <button className="carousel-arrow carousel-next" onClick={goToNext} aria-label="Next testimonial">
             ›
           </button>
-
+          
           <div className="carousel-dots">
             {testimonials.map((_, index) => (
               <button

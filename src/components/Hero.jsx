@@ -79,8 +79,8 @@ const Hero = () => {
           <div className="hero-fun-facts">
             <div className="fun-fact-item">
               <div className="fun-fact-content">
-                <h2 className="fun-fact-number">10K</h2>
-                <p className="fun-fact-label">Satisfied Clients</p>
+                <h2 className="fun-fact-number">20 +</h2>
+                <p className="fun-fact-label">Companies Served</p>
               </div>
             </div>
 

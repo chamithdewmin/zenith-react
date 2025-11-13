@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logoLight from '../assets/logo-light.svg';
+import './Hero.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,7 +23,7 @@ const Header = () => {
       <div className="hero-header-content">
         {/* Logo */}
         <Link to="/" className="hero-logo">
-          <img src={logoLight} alt="EKSPRESS Logo" className="hero-logo-img" />
+          <img src={logoLight} alt=" Zenith Supply Chain Solutions Logo" className="hero-logo-img" />
         </Link>
 
         {/* Navigation */}

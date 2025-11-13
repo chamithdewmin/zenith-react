@@ -36,7 +36,7 @@ const HowItWorks = () => {
               </h2>
             </div>
             <p className="how-it-works-description">
-             At Zenith, we believe in providing our clients with personalized and efficient logistics solutions that meet their unique needs. With years of experience and a team of experts, we are dedicated to empowering your business with seamless shipping experiences.
+             At Zenith, we believe in providing our clients with personalized and efficient VRP solutions that meet their unique needs. With years of experience and a team of experts, we are dedicated to empowering your business with seamless shipping experiences.
             </p>
           </div>
           <div className="how-it-works-image">
