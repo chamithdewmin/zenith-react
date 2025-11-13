@@ -81,11 +81,11 @@ const Services = () => {
       <div className="services-container">
         <div className="services-title">
           <p className="about-us-subheading">OUR SERVICES</p>
-          <h2 className="services-heading">
-            Comprehensive Vendor Replenishment Solutions
+          <h2 className="about-us-heading">
+            Vendor Replenishment Solutions
           </h2>
         </div>
-        <div className="services-grid">
+        <div className="services-grid"> 
           {services.map((service) => (
             <div key={service.id} className="service-card">
               <div className="service-icon">{service.icon}</div>

@@ -12,7 +12,7 @@ const AboutUs = () => {
             <div className="about-us-title">
               <p className="about-us-subheading">ABOUT US</p>
               <h2 className="about-us-heading">
-                Empowering Your Business with Smarter Supply Solutions
+                Empowering Your Business with Smarter Supply Solutions 
               </h2>
             </div>
             <p className="about-us-description">

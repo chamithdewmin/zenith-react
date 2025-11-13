@@ -46,7 +46,7 @@
   font-weight: 700;
   font-size: 48px;
   line-height: 1.3em;
-  text-transform: uppercase;
+  text-transform: uppercase; 
   color: var(--dark-blue-1);
   max-width: 900px;
   text-align: center;
