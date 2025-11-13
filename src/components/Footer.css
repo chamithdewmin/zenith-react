@@ -299,3 +299,22 @@
   color: var(--blue-3);
 }
 
+/* Mobile responsive footer bottom */
+@media (max-width: 768px) {
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .footer-copyright,
+  .footer-designed {
+    font-size: 14px;
+    line-height: 1.4em;
+  }
+
+  .footer-designed a {
+    display: inline-block;
+  }
+}
