@@ -1,7 +1,7 @@
 /* ===== ABOUT HERO SECTION ===== */
 .about-hero-section {
   padding: 100px 0 60px;
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: var(--grey-1);
 }
 
 .about-hero-grid {

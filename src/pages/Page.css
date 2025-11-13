@@ -1,9 +1,10 @@
 .page {
   width: 100%;
   min-height: 100vh;
-  background-color: var(--white);
+  background-color: var(--grey-1);
   animation: pageFadeIn 0.3s ease-in-out;
 }
+
 
 @keyframes pageFadeIn {
   from {

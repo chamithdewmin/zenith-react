@@ -35,7 +35,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-        <div className="about-us-cards">
+        <div className="about-us-cards"> 
           <div className="about-card">
             <div className="card-header">
               <span className="card-number">01</span>
