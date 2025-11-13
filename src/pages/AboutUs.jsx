@@ -6,7 +6,6 @@ import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import './Page.css';
 import aboutImage from '../assets/about.jpg';
-import aboutHeroCover from '../assets/all-hero-cover.jpg';
 
 const AboutUs = () => {
   const [isDownloading, setIsDownloading] = useState(false);
@@ -28,7 +27,7 @@ const AboutUs = () => {
 
   const handleDownload = async () => {
     setIsDownloading(true); // Start downloading state
-    const fileId = '1gqrlhkezAAerfjDBmQdmwUSpdrMIL956';
+    const fileId = '1D-qpE41L1EfGymYJ_sYDilmcO4N9T46U';
     const directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
     if (isMobile()) {
@@ -63,7 +62,7 @@ const AboutUs = () => {
       <HeroSection 
         title="About Us"
         subtitle="Industry-Leading Supply Chain and Vendor Replenishment Solutions"
-        backgroundImage={aboutHeroCover}
+        backgroundImage="https://www.hlb.global/wp-content/uploads/2025/08/Tariffs-business-agility-article-August-2025-web.jpg"
       />
 
       <div className="page-content">
@@ -74,13 +73,15 @@ const AboutUs = () => {
                 <img src={aboutImage} alt="Zenith Solutions - Professional team collaboration" className="about-image" />
               </div>
               <div className="about-text-box">
-                <h1 className="about-title" id="about-title">We Always Make The Best</h1>
+                <h1 className="about-title" id="about-title">Who Are We?</h1>
                 <p className="about-description">
-                  At Zenith Solutions, we are a team of passionate professionals dedicated to delivering exceptional supply chain and vendor management solutions.
+                  Zenith Supply Chain Solutions is a forward-thinking company based in Melbourne that focuses on improving how goods are restocked for fast-moving consumer goods (FMCG) and liquor businesses throughout Australia. Our approach goes beyond simply delivering products; we aim to transform the way suppliers and retailers manage inventory and stock levels.
                 </p>
                 <p className="about-description">
-                  Our mission is to empower businesses with cutting-edge technology solutions that drive growth, enhance efficiency, and create lasting value.
+                  We leverage extensive retail experience, advanced data analytics, and practical, on-the-ground support to act as an extension of your team. This means we don’t just provide advice — we actively manage key aspects like replenishment, demand forecasting, and logistics, ensuring your products are available when and where they are needed.
                 </p>
+
+                 
 
                 {/* ===== DOWNLOAD BUTTON ===== */}
                 <button 

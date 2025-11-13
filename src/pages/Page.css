@@ -522,7 +522,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   margin-top: 48px;
-}
+} 
 
 .blog-card {
   background-color: var(--white);
@@ -1727,3 +1727,4 @@
   color: var(--blue-1);
   font-weight: 600;
 }
+

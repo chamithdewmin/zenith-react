@@ -4,7 +4,6 @@ import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
-import aboutHeroCover from '../assets/all-hero-cover.jpg';
 import './Page.css';
 
 const Blog = () => {
@@ -57,7 +56,7 @@ const Blog = () => {
       <HeroSection 
         title="Our Blog"
         subtitle="Insights, Tips, and Latest News from Our Team"
-        backgroundImage={aboutHeroCover}
+        backgroundImage="https://www.hlb.global/wp-content/uploads/2025/08/Tariffs-business-agility-article-August-2025-web.jpg"
       />
 
       <div className="page-content">

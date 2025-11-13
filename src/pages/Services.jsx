@@ -11,7 +11,6 @@ import svc3 from '../assets/services3.jpg';
 import svc4 from '../assets/services4.jpg';
 import svc5 from '../assets/services5.jpg';
 import svc6 from '../assets/services6.jpg';
-import aboutHeroCover from '../assets/all-hero-cover.jpg';
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState(null);
@@ -184,7 +183,7 @@ Our analytics platform transforms raw data into actionable insights. Whether you
       <HeroSection 
         title="Our Services"
         subtitle="Comprehensive vendor replenishment, inventory planning, and logistics solutions to optimise your retail performance."
-        backgroundImage={aboutHeroCover} // ✅ add this prop
+        backgroundImage="https://www.hlb.global/wp-content/uploads/2025/08/Tariffs-business-agility-article-August-2025-web.jpg"
       />
       <div className="page-content">
         <section className="services-page-section">
