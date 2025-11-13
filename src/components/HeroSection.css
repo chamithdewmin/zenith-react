@@ -1,141 +1,119 @@
+/* ================================
+   HERO SECTION BASE STYLES
+================================ */
 .hero-section {
-  width: 100%;
-  min-height: 500px;
   position: relative;
-  background: var(--dark-blue-1);
-  overflow: hidden;
+  height: 65vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  animation: heroSectionFadeIn 0.4s ease-in-out;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  background-color: #000; /* fallback if no image */
 }
 
-@keyframes heroSectionFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* ================================
+   BACKGROUND IMAGE + BLUR
+================================ */
 .hero-section-background {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');
+  inset: 0;
+  z-index: 0;
   background-size: cover;
   background-position: center;
-  filter: blur(8px);
-  opacity: 0.3;
-  z-index: 0;
+  background-repeat: no-repeat;
+  filter: blur(4px); /* makes it slightly soft */
+  transform: scale(1.05);
+  transition: filter 0.4s ease, transform 10s ease-out;
 }
 
+/* Optional smooth zoom on hover */
+.hero-section:hover .hero-section-background {
+  transform: scale(1.08);
+}
+
+/* ================================
+   COLOR OVERLAY (your new tint)
+================================ */
 .hero-section-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, var(--dark-blue-1) 0%, var(--dark-blue-2) 100%);
+  inset: 0;
+  /* 👇 change this rgba color for different tints */
+  background: rgba(0, 31, 78, 0.35); /* soft blue overlay */
   z-index: 1;
 }
 
+/* Optional warm glow */
 .hero-section-orange-glow {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 40%;
+  right: 0;
   height: 40%;
-  background: radial-gradient(circle, rgba(236, 70, 33, 0.3) 0%, transparent 70%);
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 115, 0, 0.12) 0%,
+    transparent 70%
+  );
   z-index: 2;
-  pointer-events: none;
 }
 
+/* ================================
+   CONTENT
+================================ */
 .hero-section-content {
-  max-width: 1440px;
-  width: 100%;
-  padding: 120px 150px 80px;
-  margin: 0 auto;
   position: relative;
-  z-index: 5;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  flex: 1;
-  animation: heroContentFadeIn 0.5s ease-out 0.1s backwards;
+  z-index: 3;
+  max-width: 900px;
+  padding: 0 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1.2s ease both;
 }
 
-@keyframes heroContentFadeIn {
+.hero-section-title {
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.hero-section-subtitle {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ================================
+   RESPONSIVE TWEAKS
+================================ */
+@media (max-width: 768px) {
+  .hero-section {
+    height: 55vh;
+    padding: 60px 0;
+  }
+
+  .hero-section-title {
+    font-size: 2rem;
+  }
+
+  .hero-section-subtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ================================
+   ANIMATION
+================================ */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(25px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
-.hero-section-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 64px;
-  line-height: 1.2em;
-  text-transform: uppercase;
-  color: var(--white);
-  margin-bottom: 16px;
-}
-
-.hero-section-subtitle {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1.5em;
-  color: var(--white);
-  opacity: 0.9;
-  max-width: 600px;
-}
-
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .hero-section-content {
-    padding: 100px 50px 60px;
-  }
-
-  .hero-section-title {
-    font-size: 48px;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-section {
-    min-height: 400px;
-  }
-
-  .hero-section-content {
-    padding: 80px 20px 40px;
-  }
-
-  .hero-section-title {
-    font-size: 36px;
-  }
-
-  .hero-section-subtitle {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hero-section-title {
-    font-size: 28px;
-  }
-}
-

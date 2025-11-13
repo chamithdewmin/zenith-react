@@ -1,10 +1,19 @@
 import React from 'react';
 import './HeroSection.css';
 
-const HeroSection = ({ title, subtitle }) => {
+const HeroSection = ({ title, subtitle, backgroundImage }) => {
   return (
     <section className="hero-section">
-      <div className="hero-section-background">
+      {/* Background container */}
+      <div
+        className="hero-section-background"
+        style={{
+          backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+        }}
+      >
         <div className="hero-section-overlay"></div>
         <div className="hero-section-orange-glow"></div>
       </div>
@@ -19,5 +28,3 @@ const HeroSection = ({ title, subtitle }) => {
 };
 
 export default HeroSection;
-
-

@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
 import './Page.css';
 import aboutImage from '../assets/about.jpg';
+import aboutHeroCover from '../assets/all-hero-cover.jpg';
 
 const AboutUs = () => {
   // Core competencies with descriptions
@@ -58,6 +59,7 @@ const AboutUs = () => {
       <HeroSection 
         title="About Us"
         subtitle="Industry-Leading Supply Chain and Vendor Management Solutions"
+        backgroundImage={aboutHeroCover} // ✅ add this prop
       />
       
       <div className="page-content">

@@ -11,6 +11,7 @@ import svc3 from '../assets/services3.jpg';
 import svc4 from '../assets/services4.jpg';
 import svc5 from '../assets/services5.jpg';
 import svc6 from '../assets/services6.jpg';
+import aboutHeroCover from '../assets/all-hero-cover.jpg';
 
 const Services = () => {
   const [expandedService, setExpandedService] = useState(null);
@@ -185,6 +186,7 @@ Our analytics platform transforms raw data into actionable insights. Whether you
       <HeroSection 
         title="Our Services"
         subtitle="Comprehensive vendor replenishment, logistics, and inventory planning solutions to help you optimise your retail performance."
+        backgroundImage={aboutHeroCover} // ✅ add this prop
       />
       <div className="page-content">
         <section className="services-page-section">

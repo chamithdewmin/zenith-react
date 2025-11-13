@@ -4,6 +4,7 @@ import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import aboutHeroCover from '../assets/all-hero-cover.jpg';
 import './Page.css';
 
 const ContactUs = () => {
@@ -50,6 +51,7 @@ const ContactUs = () => {
       <HeroSection 
         title="Contact Us"
         subtitle="Get in Touch - We'd Love to Hear from You"
+        backgroundImage={aboutHeroCover}
       />
 
       {/* Notification */}
