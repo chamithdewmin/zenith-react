@@ -46,7 +46,7 @@ const Hero = () => {
             <div className="hero-title">
               <p className="hero-subheading">Where Insight Meets Execution</p>
               <SplitText
-                text="Streamline Your Supply Chain with Australia’s"
+                text="Transform Your Supply Chain Nationwide"
                 className="hero-heading"
                 tag="h1"
                 delay={10}
