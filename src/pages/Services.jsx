@@ -69,8 +69,7 @@ By combining statistical models with retail expertise, we help you maintain the 
 
 Our service covers:
 • Multi-carrier freight management and optimization
-• Route planning and load consolidation
-• Real-time shipment tracking and visibility
+• load consolidation
 • Cost analysis and optimization recommendations
 • Carrier performance monitoring and management
 • Delivery window optimization
@@ -141,7 +140,6 @@ Key features:
 • Customizable dashboards tailored to your KPIs
 • Real-time inventory and service level monitoring
 • Trend analysis and predictive insights
-• Automated alerts and early warning systems
 • Performance benchmarking and comparisons
 • Export capabilities for further analysis
 • Mobile-responsive dashboards for on-the-go access
@@ -185,7 +183,7 @@ Our analytics platform transforms raw data into actionable insights. Whether you
       <ScrollHeader />
       <HeroSection 
         title="Our Services"
-        subtitle="Comprehensive vendor replenishment, logistics, and inventory planning solutions to help you optimise your retail performance."
+        subtitle="Comprehensive vendor replenishment, inventory planning, and logistics solutions to optimise your retail performance."
         backgroundImage={aboutHeroCover} // ✅ add this prop
       />
       <div className="page-content">

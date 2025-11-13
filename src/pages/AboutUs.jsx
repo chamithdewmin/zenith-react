@@ -13,17 +13,17 @@ const AboutUs = () => {
   const skills = [
     { 
       name: 'VRP Planning', 
-      percentage: 95,
+      percentage: 98,
       description: 'End-to-end vendor replenishment process optimization'
     },
     { 
       name: 'Demand Forecasting', 
-      percentage: 90,
+      percentage: 95,
       description: 'Advanced analytics and predictive modeling'
     },
     { 
       name: 'Logistics Optimization', 
-      percentage: 88,
+      percentage: 80,
       description: 'Supply chain efficiency and cost reduction'
     },
   ];
@@ -36,17 +36,17 @@ const AboutUs = () => {
       description: 'Industry leadership and expertise'
     },
     { 
-      value: '100+', 
+      value: '50+', 
       label: 'Projects Completed',
       description: 'Successful implementations'
     },
     { 
-      value: '10k+', 
-      label: 'Satisfied Clients',
+      value: '20+', 
+      label: 'Companies Served',
       description: 'Growing partnerships'
     },
     { 
-      value: '20', 
+      value: '10', 
       label: 'Team Members',
       description: 'Expert professionals'
     },
@@ -58,7 +58,7 @@ const AboutUs = () => {
       <ScrollHeader />
       <HeroSection 
         title="About Us"
-        subtitle="Industry-Leading Supply Chain and Vendor Management Solutions"
+        subtitle="Industry-Leading Supply Chain and Vendor Replenishment Solutions"
         backgroundImage={aboutHeroCover} // ✅ add this prop
       />
       
