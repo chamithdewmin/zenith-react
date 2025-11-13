@@ -187,7 +187,7 @@ const AboutUs = () => {
               </article>
               
               {/* Stats Column */}
-              <article className="stats-column">
+              <article className="stats-column"> 
                 <div className="stats-grid" role="list">
                   {stats.map((stat, idx) => (
                     <div key={idx} className="service-card" role="listitem">

@@ -7,20 +7,20 @@ const HowItWorks = () => {
     {
       id: 1,
       title: 'Request a Quote',
-      description: 'At Zenith, we believe in providing our clients with personalized and efficient logistics solutions that meet their unique needs.',
+      description: 'Submit your shipping requirements, and our team will provide a customized quote that fits your business needs.',
       icon: '📝'
     },
     {
       id: 2,
       title: 'Provide Details',
-      description: 'At Zenith, we believe in providing our clients with personalized and efficient logistics solutions that meet their unique needs.',
+      description: 'Share all necessary shipment information, including items, addresses, and preferred schedules, so we can plan an efficient delivery.',
       icon: '📋'
     },
     {
       id: 3,
-      title: 'Schedule Pick-Up',
-      description: 'At Zenith, we believe in providing our clients with personalized and efficient logistics solutions that meet their unique needs.',
-      icon: '🚚'
+      title: 'Finalize Deal',
+      description: 'Review and approve the proposed logistics plan, finalize the agreement, and let us take care of the rest.',
+      icon: '✍️'
     }
   ];
 
