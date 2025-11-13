@@ -1708,3 +1708,22 @@
   }
 }
 
+
+.about-cta-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.about-cta-btn .btn-icon svg {
+  stroke: currentColor;
+}
+
+/* Download state */
+.about-cta-btn.downloading {
+  background-color: #fff; /* optional if you want a different bg */
+}
+
+.about-cta-btn .downloading-text {
+  color: var(--blue-1);
+  font-weight: 600;
+}
