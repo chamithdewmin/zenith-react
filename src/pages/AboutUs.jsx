@@ -190,7 +190,7 @@ const AboutUs = () => {
               <article className="stats-column">
                 <div className="stats-grid" role="list">
                   {stats.map((stat, idx) => (
-                    <div key={idx} className="stat-card" role="listitem">
+                    <div key={idx} className="service-card" role="listitem">
                       <div className="stat-value" aria-label={stat.label}>
                         {stat.value}
                       </div>

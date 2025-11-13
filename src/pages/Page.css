@@ -1253,7 +1253,7 @@
 .blog-card-toggle {
   background: none;
   border: none;
-  color: var(--primary-color);
+  color: var(--blue-1);
   font-weight: 600;
   margin-top: 8px;
   cursor: pointer;
@@ -1261,7 +1261,7 @@
 }
 
 .blog-card-toggle:hover {
-  color: var(--dark-primary);
+  color: var(--dark-blue-1);
 }
 
 /* Smooth dropdown animation */
@@ -1707,3 +1707,4 @@
     font-size: 14px;
   }
 }
+
