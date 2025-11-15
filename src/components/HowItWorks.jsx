@@ -6,8 +6,8 @@ const HowItWorks = () => {
   const steps = [
     {
       id: 1,
-      title: 'Request a Quote',
-      description: 'Submit your shipping requirements, and our team will provide a customized quote that fits your business needs.',
+      title: 'SCHEDULE A CONSULT',
+      description: 'Share your business needs, retail partners, and replenishment challenges.\nWe assess your requirements and deliver a tailored VRP service proposal.',
       icon: '📝'
     },
     {
@@ -19,7 +19,7 @@ const HowItWorks = () => {
     {
       id: 3,
       title: 'Finalize Deal',
-      description: 'Review and approve the proposed logistics plan, finalize the agreement, and let us take care of the rest.',
+      description: 'Review and approve the VRP strategy and scope.\nOnce approved, we manage replenishment, stock monitoring, and on-shelf availability for your business.',
       icon: '✍️'
     }
   ];
