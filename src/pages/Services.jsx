@@ -169,11 +169,11 @@ Our analytics platform transforms raw data into actionable insights. Whether you
 
   const images = {
     1: svc1,
-    2: svc2,
-    3: svc3,
+    2: "https://media.istockphoto.com/id/1071030302/photo/female-inventory-manager-shows-digital-tablet-information-to-a-worker-holding-cardboard-box.jpg?b=1&s=612x612&w=0&k=20&c=m7EaMINJWM7RRcdJfhT_H3AK-cTutHyi2jCyDd7YZ_Q=",
+    3: "https://media.istockphoto.com/id/1581309911/photo/high-angle-view-of-a-warehouse-manager-walking-with-foremen-checking-stock-on-racks.jpg?b=1&s=612x612&w=0&k=20&c=U87brcIJVZ1H4YkhhOsZ7rfp-z7G1r3y_O73zpIDN7k=",
     4: svc4,
-    5: svc5,
-    6: svc6,
+    5: "https://images.pexels.com/photos/7653999/pexels-photo-7653999.jpeg?_gl=1*1wrz25r*_ga*MTQwMDY4MTA3Mi4xNzYzMTg5MjY4*_ga_8JE65Q40S6*czE3NjMxODkyNjgkbzEkZzEkdDE3NjMxODk2ODQkajI3JGwwJGgw",
+    6: "https://images.pexels.com/photos/7651734/pexels-photo-7651734.jpeg?_gl=1*g27k2j*_ga*MTQwMDY4MTA3Mi4xNzYzMTg5MjY4*_ga_8JE65Q40S6*czE3NjMxODkyNjgkbzEkZzEkdDE3NjMxODk5MTUkajIwJGwwJGgw",
   };
 
   return (
