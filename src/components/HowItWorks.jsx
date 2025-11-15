@@ -32,11 +32,11 @@ const HowItWorks = () => {
             <div className="how-it-works-title">
               <p className="how-it-works-subheading">HOW IT WORKS</p>
               <h2 className="how-it-works-heading">
-                Streamlined Shipping in Just a Few Simple Step process
+                Streamlined Vendor Replenishment in Just a Few Simple Steps
               </h2>
             </div>
             <p className="how-it-works-description">
-             At Zenith, we believe in providing our clients with personalized and efficient VRP solutions that meet their unique needs. With years of experience and a team of experts, we are dedicated to empowering your business with seamless shipping experiences.
+             At Zenith, we specialise in empowering suppliers with tailored Vendor Replenishment Planning solutions that optimise stock flow, reduce workload, and keep your retail partners satisfied—fast, seamless, and efficient.
             </p>
           </div>
           <div className="how-it-works-image">
