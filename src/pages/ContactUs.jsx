@@ -66,7 +66,7 @@ const ContactUs = () => {
             <div className="contact-grid">
 
               {/* Contact Info */}
-              <div className="contact-info">
+              <div className="contact-info" data-animate="fade-right">
                 <h2 className="section-title">Get in Touch</h2>
                 <p className="section-description">
                   Have a question or want to discuss your project? We're here to help. 
@@ -105,7 +105,7 @@ const ContactUs = () => {
               </div>
 
               {/* Contact Form */}
-              <div className="contact-form-container">
+              <div className="contact-form-container" data-animate="fade-left">
                 <form className="contact-form" onSubmit={handleSubmit}>
                   <div className="form-row">
                     <div className="form-group">

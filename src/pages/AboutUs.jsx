@@ -27,7 +27,7 @@ const AboutUs = () => {
 
   const handleDownload = async () => {
     setIsDownloading(true); // Start downloading state
-    const fileId = '1D-qpE41L1EfGymYJ_sYDilmcO4N9T46U';
+    const fileId = '1MH5OPopr1BqvJmDbRgiGhFoZaNAQ898E';
     const directLink = `https://drive.google.com/uc?export=download&id=${fileId}`;
 
     if (isMobile()) {
@@ -69,10 +69,10 @@ const AboutUs = () => {
         <section className="about-hero-section" aria-labelledby="about-title">
           <div className="content-container">
             <div className="about-hero-grid">
-              <div className="about-image-box">
+              <div className="about-image-box" data-animate="fade-right">
                 <img src={aboutImage} alt="Zenith Solutions - Professional team collaboration" className="about-image" />
               </div>
-              <div className="about-text-box">
+              <div className="about-text-box" data-animate="fade-left">
                 <h1 className="about-title" id="about-title">Who Are We?</h1>
                 <p className="about-description">
                   Zenith Supply Chain Solutions is a forward-thinking company based in Melbourne that focuses on improving how goods are restocked for fast-moving consumer goods (FMCG) and liquor businesses throughout Australia. Our approach goes beyond simply delivering products; we aim to transform the way suppliers and retailers manage inventory and stock levels.
@@ -101,7 +101,7 @@ const AboutUs = () => {
                           <path d="M21 21H3" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </span>
-                      <span>Download</span>
+                      <span>Download Brochure</span>
                     </>
                   )}
                 </button>
@@ -114,14 +114,14 @@ const AboutUs = () => {
         <section className="skills-stats-section" aria-labelledby="skills-title">
           <div className="content-container">
             <div className="skills-stats-wrapper">
-              <article className="skills-column">
+              <article className="skills-column" data-animate="fade-up">
                 <h2 className="skills-heading" id="skills-title">Our Core Competencies</h2>
                 <p className="skills-subheading">
                   Expertise across critical supply chain functions, driving measurable results and operational excellence.
                 </p>
                 <div className="skills-list" role="list">
                   {skills.map((skill, idx) => (
-                    <div key={idx} className="skill-item" role="listitem">
+                    <div key={idx} className="skill-item" role="listitem" data-animate="fade-up" data-delay={idx * 100}>
                       <div className="skill-header">
                         <div className="skill-info">
                           <h3 className="skill-name">{skill.name}</h3>
@@ -139,10 +139,10 @@ const AboutUs = () => {
                 </div>
               </article>
 
-              <article className="stats-column">
+              <article className="stats-column" data-animate="fade-up" data-delay="200">
                 <div className="stats-grid" role="list">
                   {stats.map((stat, idx) => (
-                    <div key={idx} className="service-card" role="listitem">
+                    <div key={idx} className="service-card" role="listitem" data-animate="scale" data-delay={(idx + 1) * 100}>
                       <div className="stat-value" aria-label={stat.label}>{stat.value}</div>
                       <div className="stat-label">{stat.label}</div>
                       <p className="stat-description">{stat.description}</p>

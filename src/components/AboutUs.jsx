@@ -8,7 +8,7 @@ const AboutUs = () => {
     <section className="about-us" id="about">
       <div className="about-us-container">
         <div className="about-us-content">
-          <div className="about-us-text">
+          <div className="about-us-text" data-animate="fade-right">
             <div className="about-us-title">
               <p className="about-us-subheading">ABOUT US</p>
               <h2 className="about-us-heading">
@@ -29,28 +29,28 @@ const AboutUs = () => {
             </p>
             <Link to="/about" className="btn-learn-more">LEARN MORE</Link>
           </div>
-          <div className="about-us-image">
+          <div className="about-us-image" data-animate="fade-left">
             <div className="image-placeholder">
               <img src={aboutImage} alt="About Us" />
             </div>
           </div>
         </div>
         <div className="about-us-cards"> 
-          <div className="about-card">
+          <div className="about-card" data-animate="fade-up" data-delay="100">
             <div className="card-header">
               <span className="card-number">01</span>
               <div className="card-divider"></div>
               <h3 className="card-title">Expertise and Experience</h3>
             </div>
           </div>
-          <div className="about-card">
+          <div className="about-card" data-animate="fade-up" data-delay="200">
             <div className="card-header">
               <span className="card-number">02</span>
               <div className="card-divider"></div>
               <h3 className="card-title">Committed to Quality</h3>
             </div>
           </div>
-          <div className="about-card">
+          <div className="about-card" data-animate="fade-up" data-delay="300">
             <div className="card-header">
               <span className="card-number">03</span>
               <div className="card-divider"></div>

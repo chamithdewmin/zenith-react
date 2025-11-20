@@ -188,17 +188,19 @@ Our analytics platform transforms raw data into actionable insights. Whether you
       <div className="page-content">
         <section className="services-page-section">
           <div className="services-page-container">
-            <div className="services-intro">
+            <div className="services-intro" data-animate="fade-down">
               <p className="services-subheading">Explore our comprehensive solutions designed to optimize your retail operations</p>
             </div>
             <div className="services-list-alt">
               {services.map((service, idx) => {
                 const bullets = getBullets(service.detailedDescription);
                 const isReverse = idx % 2 === 1;
+                const animationType = isReverse ? 'fade-left' : 'fade-right';
                 return (
                   <div
                     key={service.id}
                     className={`service-row ${isReverse ? 'reverse' : ''}`}
+                    data-animate={animationType}
                   >
                     <div className="service-image">
                       <img src={images[service.id]} alt={`${service.title} illustration`} />

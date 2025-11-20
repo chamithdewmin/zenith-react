@@ -1,5 +1,6 @@
 import { useLayoutEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { refreshMotionObserver } from '../utils/motionObserver';
 
 export default function ScrollToTop() {
   const location = useLocation();
@@ -13,6 +14,9 @@ export default function ScrollToTop() {
       } catch (e) {
         window.scrollTo(0, 0);
       }
+      
+      // Refresh motion observer for new page elements
+      setTimeout(() => refreshMotionObserver(), 100);
       return;
     }
 

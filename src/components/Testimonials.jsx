@@ -66,11 +66,11 @@ const Testimonials = () => {
   return (
     <section className="testimonials">
       <div className="testimonials-container">
-        <div className="testimonials-title">
+        <div className="testimonials-title" data-animate="fade-down">
           <p className="testimonials-subheading">TESTIMONIALS</p>
           <h2 className="testimonials-heading">What Our Clients Say</h2>
         </div>
-        <div className="testimonials-carousel">
+        <div className="testimonials-carousel" data-animate="fade-up">
          
           
           <div className="carousel-content">

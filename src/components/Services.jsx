@@ -79,14 +79,14 @@ const Services = () => {
   return (
     <section className="services" id="services">
       <div className="services-container">
-        <div className="services-title">
+        <div className="services-title" data-animate="fade-down">
           <p className="about-us-subheading">OUR SERVICES</p>
           <h2 className="about-us-heading">
             Vendor Replenishment Solutions
           </h2>
         </div>
         <div className="services-grid"> 
-          {services.map((service) => (
+          {services.map((service, idx) => (
             <div key={service.id} className="service-card">
               <div className="service-icon">{service.icon}</div>
               <div className="service-content">

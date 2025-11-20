@@ -92,7 +92,7 @@
 
 .steps-line {
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 150px;
   right: 150px;
   height: 0;
@@ -191,10 +191,7 @@
     gap: 60px;
   }
 
-  .steps-line {
-    left: 50px;
-    right: 50px;
-  }
+
 }
 
 @media (max-width: 768px) {

@@ -63,8 +63,8 @@ const Blog = () => {
         <section className="content-section">
           <div className="content-container">
             <div className="blog-grid">
-              {blogPosts.map((post) => (
-                <article key={post.id} className="blog-card">
+              {blogPosts.map((post, idx) => (
+                <article key={post.id} className="blog-card" data-animate="fade-up" data-delay={idx * 100}>
                   <div className="blog-card-image">
                     <img src={post.image} alt={post.title} />
                     <div className="blog-card-category">{post.category}</div>

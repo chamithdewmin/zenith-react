@@ -1,0 +1,317 @@
+/* ============================================
+   PROFESSIONAL MOTION SYSTEM
+   Scroll-triggered and load animations
+   ============================================ */
+
+/* CSS Variables for Motion */
+:root {
+  --motion-duration-fast: 0.3s;
+  --motion-duration-base: 0.6s;
+  --motion-duration-slow: 0.9s;
+  --motion-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --motion-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --motion-ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --motion-distance: 60px;
+  --motion-distance-small: 30px;
+}
+
+/* Base state: hidden before animation */
+[data-animate] {
+  opacity: 0;
+}
+
+/* Fade animations */
+[data-animate="fade"].animated {
+  animation: fadeIn var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade + Slide Up */
+[data-animate="fade-up"].animated {
+  animation: fadeSlideUp var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade + Slide Down */
+[data-animate="fade-down"].animated {
+  animation: fadeSlideDown var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes fadeSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--motion-distance) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade + Slide Left */
+[data-animate="fade-left"].animated {
+  animation: fadeSlideLeft var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes fadeSlideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(var(--motion-distance));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade + Slide Right */
+[data-animate="fade-right"].animated {
+  animation: fadeSlideRight var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(calc(var(--motion-distance) * -1));
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale + Fade */
+[data-animate="scale"].animated {
+  animation: scaleIn var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scale Up (Zoom) */
+[data-animate="scale-up"].animated {
+  animation: scaleUp var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Flip In */
+[data-animate="flip"].animated {
+  animation: flipIn var(--motion-duration-slow) var(--motion-ease-out) forwards;
+}
+
+@keyframes flipIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateY(90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0);
+  }
+}
+
+/* Bounce In */
+[data-animate="bounce"].animated {
+  animation: bounceIn var(--motion-duration-slow) var(--motion-ease-bounce) forwards;
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide and Blur */
+[data-animate="blur-up"].animated {
+  animation: blurSlideUp var(--motion-duration-base) var(--motion-ease-out) forwards;
+}
+
+@keyframes blurSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance));
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* Rotate In */
+[data-animate="rotate"].animated {
+  animation: rotateIn var(--motion-duration-slow) var(--motion-ease-out) forwards;
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
+}
+
+/* Stagger delays for sequential animations */
+[data-animate][data-delay="100"] {
+  animation-delay: 0.1s;
+}
+
+[data-animate][data-delay="200"] {
+  animation-delay: 0.2s;
+}
+
+[data-animate][data-delay="300"] {
+  animation-delay: 0.3s;
+}
+
+[data-animate][data-delay="400"] {
+  animation-delay: 0.4s;
+}
+
+[data-animate][data-delay="500"] {
+  animation-delay: 0.5s;
+}
+
+[data-animate][data-delay="600"] {
+  animation-delay: 0.6s;
+}
+
+[data-animate][data-delay="700"] {
+  animation-delay: 0.7s;
+}
+
+[data-animate][data-delay="800"] {
+  animation-delay: 0.8s;
+}
+
+/* Duration modifiers */
+[data-animate][data-duration="fast"] {
+  animation-duration: var(--motion-duration-fast) !important;
+}
+
+[data-animate][data-duration="slow"] {
+  animation-duration: var(--motion-duration-slow) !important;
+}
+
+/* Easing modifiers */
+[data-animate][data-easing="bounce"] {
+  animation-timing-function: var(--motion-ease-bounce) !important;
+}
+
+[data-animate][data-easing="in-out"] {
+  animation-timing-function: var(--motion-ease-in-out) !important;
+}
+
+/* Hover lift effect for cards */
+.hover-lift {
+  transition: transform var(--motion-duration-fast) var(--motion-ease-out),
+              box-shadow var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+/* Hover scale effect */
+.hover-scale {
+  transition: transform var(--motion-duration-fast) var(--motion-ease-out);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth entrance for page content */
+.page-enter {
+  animation: pageEnter 0.5s var(--motion-ease-out) forwards;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Accessibility: Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  
+  [data-animate].animated {
+    animation: none !important;
+  }
+}
+
+/* Performance optimization: Use will-change sparingly */
+[data-animate]:not(.animated) {
+  will-change: transform, opacity;
+}
+
+[data-animate].animated {
+  will-change: auto;
+}
