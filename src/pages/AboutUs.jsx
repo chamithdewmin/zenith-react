@@ -115,7 +115,7 @@ const AboutUs = () => {
           <div className="content-container">
             <div className="skills-stats-wrapper">
               <article className="skills-column" data-animate="fade-up">
-                <h2 className="skills-heading" id="skills-title">Our Core Competencies</h2>
+                <h2 className="skills-heading" id="skills-title">Why Choose Us</h2>
                 <p className="skills-subheading">
                   Expertise across critical supply chain functions, driving measurable results and operational excellence.
                 </p>
@@ -153,8 +153,6 @@ const AboutUs = () => {
             </div>
           </div>
         </section>
-
-        <br /><br /><br /><br /><br /><br /><br />
       </div>
 
       <Footer />
