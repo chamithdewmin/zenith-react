@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Database configuration - UPDATE THESE WITH YOUR HOSTINGER DATABASE CREDENTIALS
-$host = 'localhost'; // Usually 'localhost' for Hostinger
-$dbname = 'zenith_db'; // Your Hostinger database name
-$username = 'zenithscs'; // Your Hostinger database username
+$host = 'auth-db2051.hstgr.io'; // Usually 'localhost' for Hostinger
+$dbname = 'u931987027_zenith_db'; // Your Hostinger database name
+$username = 'u931987027_zenithscs'; // Your Hostinger database username
 $password = 'Zenith2025@#!'; // Your Hostinger database password
 
 try {

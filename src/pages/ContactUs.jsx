@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
@@ -97,7 +96,6 @@ const ContactUs = () => {
   return (
     <div className="page">
       <Header />
-      <ScrollHeader />
       <HeroSection 
         title="Contact Us"
         subtitle="Get in Touch - We'd Love to Hear from You"

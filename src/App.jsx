@@ -6,6 +6,7 @@ import AboutUs from './pages/AboutUs';
 import Services from './pages/Services';
 import ContactUs from './pages/ContactUs';
 import Blog from './pages/Blog';
+import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 import { initMotionObserver, destroyMotionObserver } from './utils/motionObserver';
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<ContactUs />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>

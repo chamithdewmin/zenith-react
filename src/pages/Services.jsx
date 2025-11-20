@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
@@ -179,7 +178,6 @@ Our analytics platform transforms raw data into actionable insights. Whether you
   return (
     <div className="page">
       <Header />
-      <ScrollHeader />
       <HeroSection 
         title="Our Services"
         subtitle="Comprehensive vendor replenishment, inventory planning, and logistics solutions to optimise your retail performance."

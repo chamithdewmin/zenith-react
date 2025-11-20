@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
@@ -52,7 +51,6 @@ const Blog = () => {
   return (
     <div className="page">
       <Header />
-      <ScrollHeader />
       <HeroSection 
         title="Our Blog"
         subtitle="Insights, Tips, and Latest News from Our Team"
