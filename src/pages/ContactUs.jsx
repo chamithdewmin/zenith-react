@@ -4,6 +4,7 @@ import ScrollHeader from '../components/ScrollHeader';
 import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import ScrollToTopButton from '../components/ScrollToTopButton';
+import { submitContactForm, validateForm } from '../services/api/contactApi';
 import './Page.css';
 
 const ContactUs = () => {
@@ -14,33 +15,83 @@ const ContactUs = () => {
     subject: '',
     message: ''
   });
-  const [notification, setNotification] = useState('');
+  const [notification, setNotification] = useState({ message: '', type: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [name]: value
     });
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors({
+        ...errors,
+        [name]: ''
+      });
+    }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    
+    // Validate form
+    const validation = validateForm(formData);
+    if (!validation.isValid) {
+      setErrors(validation.errors);
+      setNotification({ 
+        message: 'Please fix the errors in the form', 
+        type: 'error' 
+      });
+      setTimeout(() => setNotification({ message: '', type: '' }), 3000);
+      return;
+    }
 
-    // Show notification
-    setNotification('Message sent successfully!');
+    setIsSubmitting(true);
+    setErrors({});
 
-    // Clear form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: ''
-    });
+    try {
+      // Submit form to API
+      const result = await submitContactForm(formData);
 
-    // Hide notification after 3 seconds
-    setTimeout(() => setNotification(''), 3000);
+      if (result.success) {
+        // Show success notification
+        setNotification({ 
+          message: result.message || 'Message sent successfully! We will get back to you soon.', 
+          type: 'success' 
+        });
+
+        // Clear form
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        });
+
+        // Hide notification after 5 seconds
+        setTimeout(() => setNotification({ message: '', type: '' }), 5000);
+      } else {
+        // Show error notification
+        setNotification({ 
+          message: result.message || 'Failed to send message. Please try again.', 
+          type: 'error' 
+        });
+        setTimeout(() => setNotification({ message: '', type: '' }), 5000);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setNotification({ 
+        message: 'An unexpected error occurred. Please try again later.', 
+        type: 'error' 
+      });
+      setTimeout(() => setNotification({ message: '', type: '' }), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -54,9 +105,9 @@ const ContactUs = () => {
       />
 
       {/* Notification Toast */}
-      {notification && (
-        <div className="toast-notification">
-          {notification}
+      {notification.message && (
+        <div className={`toast-notification ${notification.type === 'error' ? 'toast-error' : 'toast-success'}`}>
+          {notification.message}
         </div>
       )}
 
@@ -116,8 +167,11 @@ const ContactUs = () => {
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
+                        className={errors.name ? 'input-error' : ''}
+                        disabled={isSubmitting}
                         required
                       />
+                      {errors.name && <span className="error-message">{errors.name}</span>}
                     </div>
                     <div className="form-group">
                       <label htmlFor="email">Email *</label>
@@ -127,8 +181,11 @@ const ContactUs = () => {
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
+                        className={errors.email ? 'input-error' : ''}
+                        disabled={isSubmitting}
                         required
                       />
+                      {errors.email && <span className="error-message">{errors.email}</span>}
                     </div>
                   </div>
 
@@ -141,7 +198,10 @@ const ContactUs = () => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
+                        className={errors.phone ? 'input-error' : ''}
+                        disabled={isSubmitting}
                       />
+                      {errors.phone && <span className="error-message">{errors.phone}</span>}
                     </div>
                     <div className="form-group">
                       <label htmlFor="subject">Subject *</label>
@@ -151,8 +211,11 @@ const ContactUs = () => {
                         name="subject"
                         value={formData.subject}
                         onChange={handleChange}
+                        className={errors.subject ? 'input-error' : ''}
+                        disabled={isSubmitting}
                         required
                       />
+                      {errors.subject && <span className="error-message">{errors.subject}</span>}
                     </div>
                   </div>
 
@@ -163,13 +226,16 @@ const ContactUs = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
+                      className={errors.message ? 'input-error' : ''}
                       rows="6"
+                      disabled={isSubmitting}
                       required
                     ></textarea>
+                    {errors.message && <span className="error-message">{errors.message}</span>}
                   </div>
 
-                  <button type="submit" className="form-submit-btn">
-                    Send Message
+                  <button type="submit" className="form-submit-btn" disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>

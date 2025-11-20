@@ -1229,14 +1229,27 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: #ffffff; /* White background */
-  color: var(--dark-blue-1);       /* Text color */
+  background-color: #ffffff;
+  color: var(--dark-blue-1);
   padding: 15px 25px;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   font-weight: 600;
   z-index: 9999;
   animation: slideIn 0.3s ease-out;
+  border-left: 4px solid var(--blue-1);
+}
+
+.toast-notification.toast-success {
+  border-left-color: #10b981;
+  background-color: #f0fdf4;
+  color: #065f46;
+}
+
+.toast-notification.toast-error {
+  border-left-color: #ef4444;
+  background-color: #fef2f2;
+  color: #991b1b;
 }
 
 /* Optional: slide in effect */
@@ -1249,6 +1262,27 @@
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* Form validation styles */
+.input-error {
+  border-color: #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.error-message {
+  display: block;
+  color: #dc2626;
+  font-size: 13px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--grey-1);
+  color: var(--dark-blue-1);
 }
 
 .blog-card-toggle {
