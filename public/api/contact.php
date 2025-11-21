@@ -19,10 +19,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Database configuration - UPDATE THESE WITH YOUR HOSTINGER DATABASE CREDENTIALS
-$host = 'auth-db2051.hstgr.io'; // Usually 'localhost' for Hostinger
+$host = 'localhost'; // Try 'localhost' first, or use 'auth-db2051.hstgr.io' if needed
 $dbname = 'u931987027_zenith_db'; // Your Hostinger database name
 $username = 'u931987027_zenithscs'; // Your Hostinger database username
-$password = 'Zenith2025@#!'; // Your Hostinger database password
+$password = 'Zenith2025@#!'; // CHANGE THIS to your real Hostinger database password
 
 try {
     // Create PDO connection

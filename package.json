@@ -6,7 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run build:admin",
+    "build:admin": "cd src/admin-zenith && npm install && npm run build",
+    "dev:admin": "cd src/admin-zenith && npm run dev",
     "preview": "vite preview"
   },
   "dependencies": {
