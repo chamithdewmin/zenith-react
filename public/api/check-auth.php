@@ -23,8 +23,10 @@ if (isAuthenticated()) {
         'authenticated' => true,
         'user' => [
             'id' => $_SESSION['admin_id'] ?? null,
+            'username' => $_SESSION['admin_username'] ?? null,
             'email' => $_SESSION['admin_email'] ?? null,
-            'name' => $_SESSION['admin_name'] ?? null
+            'name' => $_SESSION['admin_name'] ?? null,
+            'role' => $_SESSION['admin_role'] ?? null
         ],
         'csrf_token' => generateCSRFToken()
     ]);

@@ -45,9 +45,16 @@ try {
     
     $offset = ($page - 1) * $limit;
     
+    // Ensure is_read column exists
+    try {
+        $pdo->exec("ALTER TABLE contact_submissions ADD COLUMN IF NOT EXISTS is_read BOOLEAN DEFAULT FALSE");
+    } catch (Exception $e) {
+        // Column might already exist
+    }
+
     // Build query with search
     if (!empty($search)) {
-        $sql = "SELECT id, name as sender, email, phone, subject, message, created_at as date 
+        $sql = "SELECT id, name as sender, email, phone, subject, message, created_at as date, COALESCE(is_read, FALSE) as is_read 
                 FROM contact_submissions 
                 WHERE name LIKE :search 
                 OR email LIKE :search 
@@ -61,7 +68,7 @@ try {
         $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
         $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
     } else {
-        $sql = "SELECT id, name as sender, email, phone, subject, message, created_at as date 
+        $sql = "SELECT id, name as sender, email, phone, subject, message, created_at as date, COALESCE(is_read, FALSE) as is_read 
                 FROM contact_submissions 
                 ORDER BY created_at DESC 
                 LIMIT :limit OFFSET :offset";

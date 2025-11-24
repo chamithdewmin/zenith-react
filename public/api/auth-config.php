@@ -166,4 +166,115 @@ function verifyCSRFToken($token) {
         exit();
     }
 }
+
+// Send email using SMTP
+function sendOTPEmail($to, $subject, $body, $fromName = 'Zenith Support', $fromEmail = 'logozodev@gmail.com') {
+    $smtpHost = 'smtp.gmail.com';
+    $smtpPort = 587;
+    $smtpUsername = 'logozodev@gmail.com';
+    $smtpPassword = 'csts jqmj rerg gmji';
+    
+    try {
+        $socket = @fsockopen($smtpHost, $smtpPort, $errno, $errstr, 30);
+        if (!$socket) {
+            error_log("SMTP Connection failed: $errstr ($errno)");
+            return false;
+        }
+        
+        // Read greeting
+        $response = fgets($socket, 515);
+        
+        // Send EHLO
+        fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
+        $response = fgets($socket, 515);
+        
+        // Start TLS
+        fputs($socket, "STARTTLS\r\n");
+        $response = fgets($socket, 515);
+        
+        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+            error_log("SMTP TLS failed");
+            fclose($socket);
+            return false;
+        }
+        
+        // Send EHLO again after TLS
+        fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
+        $response = fgets($socket, 515);
+        
+        // Authenticate
+        fputs($socket, "AUTH LOGIN\r\n");
+        $response = fgets($socket, 515);
+        
+        fputs($socket, base64_encode($smtpUsername) . "\r\n");
+        $response = fgets($socket, 515);
+        
+        fputs($socket, base64_encode($smtpPassword) . "\r\n");
+        $response = fgets($socket, 515);
+        
+        if (substr($response, 0, 3) !== '235') {
+            error_log("SMTP Authentication failed: $response");
+            fclose($socket);
+            return false;
+        }
+        
+        // Send MAIL FROM
+        fputs($socket, "MAIL FROM: <{$fromEmail}>\r\n");
+        $response = fgets($socket, 515);
+        
+        // Send RCPT TO
+        fputs($socket, "RCPT TO: <{$to}>\r\n");
+        $response = fgets($socket, 515);
+        
+        // Send DATA
+        fputs($socket, "DATA\r\n");
+        $response = fgets($socket, 515);
+        
+        // Generate unique message ID to prevent spam
+        $messageId = '<' . md5(uniqid(time())) . '@zenithscs.com.au>';
+        
+        // Send headers and body with anti-spam measures
+        $message = "From: {$fromName} <{$fromEmail}>\r\n";
+        $message .= "To: {$to}\r\n";
+        $message .= "Subject: {$subject}\r\n";
+        $message .= "Message-ID: {$messageId}\r\n";
+        $message .= "Date: " . date('r') . "\r\n";
+        $message .= "MIME-Version: 1.0\r\n";
+        $message .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $message .= "Content-Transfer-Encoding: 8bit\r\n";
+        $message .= "X-Mailer: Zenith SCS\r\n";
+        $message .= "X-Priority: 1\r\n";
+        $message .= "Importance: High\r\n";
+        $message .= "\r\n";
+        $message .= $body . "\r\n";
+        $message .= ".\r\n";
+        
+        fputs($socket, $message);
+        $response = fgets($socket, 515);
+        
+        // Send QUIT
+        fputs($socket, "QUIT\r\n");
+        fclose($socket);
+        
+        return true;
+    } catch (Exception $e) {
+        error_log("SMTP Error: " . $e->getMessage());
+        return false;
+    }
+}
+
+// Require admin role for certain endpoints
+function requireAdmin() {
+    startSecureSession();
+    if (!isset($_SESSION['admin_logged_in']) || $_SESSION['admin_logged_in'] !== true) {
+        http_response_code(401);
+        echo json_encode(['success' => false, 'message' => 'Unauthorized']);
+        exit();
+    }
+    if (!isset($_SESSION['admin_role']) || $_SESSION['admin_role'] !== 'admin') {
+        http_response_code(403);
+        echo json_encode(['success' => false, 'message' => 'Forbidden']);
+        exit();
+    }
+}
 ?>

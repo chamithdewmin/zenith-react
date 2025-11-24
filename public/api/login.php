@@ -30,40 +30,43 @@ checkRateLimit($_SERVER['REMOTE_ADDR']);
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-// Validate input
-if (empty($data['email']) || empty($data['password'])) {
+// Validate input - use username for admin login
+if (empty($data['username']) || empty($data['password'])) {
     recordFailedAttempt();
     http_response_code(400);
     echo json_encode([
         'success' => false,
-        'message' => 'Email and password are required'
+        'message' => 'Username and password are required'
     ]);
     exit();
 }
 
-$email = sanitizeInput($data['email']);
+$login_username = sanitizeInput($data['username']);
 $password = $data['password'];
 
 // Database configuration
 $host = 'localhost';
 $dbname = 'u931987027_zenith_db';
-$username = 'u931987027_zenithscs';
+$db_username = 'u931987027_zenithscs';
 $db_password = 'Zenith2025@#!';
 
 try {
     // Create PDO connection
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $db_password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $db_username, $db_password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // Check if admin users table exists, if not create it
+    // Check if admin users table exists, if not create it (add username column)
     $pdo->exec("CREATE TABLE IF NOT EXISTS admin_users (
         id INT AUTO_INCREMENT PRIMARY KEY,
-        email VARCHAR(255) UNIQUE NOT NULL,
+        username VARCHAR(100) UNIQUE NOT NULL,
+        email VARCHAR(255),
         password_hash VARCHAR(255) NOT NULL,
         full_name VARCHAR(255),
+        role ENUM('admin','user') DEFAULT 'admin',
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         last_login DATETIME,
         is_active BOOLEAN DEFAULT TRUE,
+        INDEX idx_username (username),
         INDEX idx_email (email)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
     
@@ -74,14 +77,14 @@ try {
     
     // Create default admin if no users exist
     if ($count == 0) {
-        $default_password_hash = hashPassword('admin123');
-        $stmt = $pdo->prepare("INSERT INTO admin_users (email, password_hash, full_name) VALUES (?, ?, ?)");
-        $stmt->execute(['admin@gmail.com', $default_password_hash, 'Administrator']);
+        $default_password_hash = hashPassword('zenith@#!132');
+        $stmt = $pdo->prepare("INSERT INTO admin_users (username, email, password_hash, full_name, role) VALUES (?, ?, ?, ?, ?)");
+        $stmt->execute(['zenithlog', 'logozodev@gmail.com', $default_password_hash, 'Administrator', 'admin']);
     }
     
-    // Fetch user from database
-    $stmt = $pdo->prepare("SELECT id, email, password_hash, full_name, is_active FROM admin_users WHERE email = ? AND is_active = TRUE");
-    $stmt->execute([$email]);
+    // Fetch user from database by username
+    $stmt = $pdo->prepare("SELECT id, username, email, password_hash, full_name, role, is_active FROM admin_users WHERE username = ?");
+    $stmt->execute([$login_username]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     
     if (!$user) {
@@ -93,7 +96,20 @@ try {
         http_response_code(401);
         echo json_encode([
             'success' => false,
-            'message' => 'Invalid email or password'
+            'message' => 'Invalid username or password'
+        ]);
+        exit;
+    }
+    
+    // Check if user account is blocked
+    if (!$user['is_active']) {
+        recordFailedAttempt();
+        sleep(1);
+        
+        http_response_code(403);
+        echo json_encode([
+            'success' => false,
+            'message' => 'Your account has been blocked. Please contact administrator.'
         ]);
         exit();
     }
@@ -108,7 +124,7 @@ try {
         http_response_code(401);
         echo json_encode([
             'success' => false,
-            'message' => 'Invalid email or password'
+            'message' => 'Invalid username or password'
         ]);
         exit();
     }
@@ -122,8 +138,10 @@ try {
     // Set session variables
     $_SESSION['admin_logged_in'] = true;
     $_SESSION['admin_id'] = $user['id'];
+    $_SESSION['admin_username'] = $user['username'];
     $_SESSION['admin_email'] = $user['email'];
     $_SESSION['admin_name'] = $user['full_name'];
+    $_SESSION['admin_role'] = $user['role'];
     $_SESSION['ip_address'] = $_SERVER['REMOTE_ADDR'];
     $_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
     $_SESSION['last_activity'] = time();
@@ -142,8 +160,10 @@ try {
         'message' => 'Login successful',
         'user' => [
             'id' => $user['id'],
+            'username' => $user['username'],
             'email' => $user['email'],
-            'name' => $user['full_name']
+            'name' => $user['full_name'],
+            'role' => $user['role']
         ],
         'csrf_token' => $csrf_token
     ]);
