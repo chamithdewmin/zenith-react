@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="48" viewBox="0 0 180 48">
+  <rect width="180" height="48" rx="12" fill="#121D50"/>
+  <text x="20" y="32" font-family="Space Grotesk, sans-serif" font-size="22" fill="#FFFFFF" font-weight="600">
+    Zenith
+  </text>
+  <text x="110" y="32" font-family="Space Grotesk, sans-serif" font-size="18" fill="#8CC4FF">
+    Analytics
+  </text>
+</svg>
+

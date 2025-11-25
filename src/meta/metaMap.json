@@ -1,0 +1,32 @@
+{
+  "/": {
+    "title": "Zenith Supply Chain Solutions | Vendor Replenishment Experts",
+    "description": "Full-service VRP planning, demand forecasting, and logistics optimization for Australian FMCG and liquor brands.",
+    "keywords": "vendor replenishment planning, supply chain optimisation, FMCG logistics, demand forecasting, zenith supply chain, australian retail replenishment"
+  },
+  "/about": {
+    "title": "About Zenith | Retail Supply Chain Specialists",
+    "description": "Discover the Zenith team delivering replenishment strategy, analytics, and on-the-ground execution for leading retailers.",
+    "keywords": "about zenith supply chain, vrp consultants melbourne, logistics experts, replenishment specialists"
+  },
+  "/services": {
+    "title": "Services | VRP Planning, Forecasting & Logistics Support",
+    "description": "Explore our services covering vendor replenishment, demand planning, analytics automation, merchandising, and logistics coordination.",
+    "keywords": "vrp services, demand planning services, supply chain analytics, merchandising execution, logistics coordination"
+  },
+  "/contact": {
+    "title": "Contact Zenith Supply Chain Solutions",
+    "description": "Request a consultation or speak with Zenith about replenishment support, analytics, and logistics improvements.",
+    "keywords": "contact zenith, supply chain consultation, vrp enquiry, logistics support contact"
+  },
+  "/blog": {
+    "title": "Insights & Blog | Zenith Supply Chain",
+    "description": "Read practical playbooks on demand forecasting, VRP outsourcing, and retail growth enablement.",
+    "keywords": "supply chain blog, vrp insights, demand forecasting articles, zenith blog"
+  },
+  "/404": {
+    "title": "404 - Page Not Found | Zenith Supply Chain",
+    "description": "The page you requested could not be found. Return to Zenith Supply Chain Solutions to keep exploring services, insights, and contact options.",
+    "keywords": "404 page, zenith supply chain, page not found"
+  }
+}

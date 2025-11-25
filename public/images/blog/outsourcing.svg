@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" rx="32" fill="#F2E8FF"/>
+  <rect x="120" y="140" width="200" height="200" rx="20" fill="#923DFF" opacity="0.85"/>
+  <rect x="340" y="100" width="200" height="240" rx="20" fill="#C38CFF" opacity="0.9"/>
+  <rect x="560" y="180" width="120" height="160" rx="20" fill="#4B60FF" opacity="0.9"/>
+  <text x="60" y="80" font-family="Space Grotesk, sans-serif" font-size="40" fill="#421E78" font-weight="600">
+    Fractional VRP Support
+  </text>
+</svg>
+

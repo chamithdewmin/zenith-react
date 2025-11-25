@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" rx="32" fill="#E7EBFF"/>
+  <path d="M120 320 L200 220 L280 260 L360 180 L440 260 L520 140 L600 210 L680 120" stroke="#4B60FF" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="200" cy="220" r="18" fill="#4B60FF"/>
+  <circle cx="360" cy="180" r="18" fill="#4B60FF"/>
+  <circle cx="520" cy="140" r="18" fill="#4B60FF"/>
+  <circle cx="680" cy="120" r="18" fill="#4B60FF"/>
+  <text x="60" y="80" font-family="Space Grotesk, sans-serif" font-size="40" fill="#121D50" font-weight="600">
+    Data-driven Replenishment
+  </text>
+</svg>
+

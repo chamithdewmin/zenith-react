@@ -13,9 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 // Require admin privileges
+startSecureSession();
 requireAdmin();
 
+$host = 'localhost';
+$dbname = 'u931987027_zenith_db';
+$dbuser = 'u931987027_zenithscs';
+$dbpass = 'Zenith2025@#!';
+
 try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $dbuser, $dbpass);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
     $input = json_decode(file_get_contents('php://input'), true);
     
     if (!isset($input['id'])) {
@@ -49,6 +58,10 @@ try {
         'is_active' => (bool)$newStatus
     ]);
     
+} catch (PDOException $e) {
+    error_log("Toggle user status DB error: " . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['success' => false, 'message' => 'Database error occurred']);
 } catch (Exception $e) {
     error_log("Toggle user status error: " . $e->getMessage());
     http_response_code(500);

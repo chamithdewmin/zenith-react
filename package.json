@@ -6,23 +6,50 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run build:admin",
-    "build:admin": "cd src/admin-zenith && npm install && npm run build",
     "dev:admin": "cd src/admin-zenith && npm run dev",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "meta:generate": "node scripts/scrapeMeta.mjs",
+    "build:client": "cross-env GENERATE_SOURCEMAP=false vite build",
+    "snap": "react-snap",
+    "build:admin": "cd src/admin-zenith && npm install && npm run build",
+    "build": "npm run meta:generate && npm run build:client && npm run snap && npm run build:admin"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@lottiefiles/dotlottie-react": "^0.17.7",
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
     "gsap": "^3.13.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.9.5",
+    "react-snap": "^1.23.0",
     "react-spinners": "^0.17.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.2.1",
+    "cross-env": "^7.0.3",
     "vite": "^5.0.8"
+  },
+  "reactSnap": {
+    "source": "dist",
+    "inlineCss": true,
+    "puppeteerArgs": [
+      "--no-sandbox"
+    ],
+    "minifyHtml": {
+      "collapseWhitespace": true,
+      "removeComments": true
+    },
+    "skipThirdPartyRequests": false,
+    "include": [
+      "/",
+      "/about",
+      "/services",
+      "/contact",
+      "/blog"
+    ]
   }
 }

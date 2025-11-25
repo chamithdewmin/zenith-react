@@ -167,100 +167,118 @@ function verifyCSRFToken($token) {
     }
 }
 
-// Send email using SMTP
-function sendOTPEmail($to, $subject, $body, $fromName = 'Zenith Support', $fromEmail = 'logozodev@gmail.com') {
-    $smtpHost = 'smtp.gmail.com';
-    $smtpPort = 587;
-    $smtpUsername = 'logozodev@gmail.com';
-    $smtpPassword = 'csts jqmj rerg gmji';
+// Send email using Brevo (Sendinblue) API
+function sendOTPEmail($to, $subject, $body, $fromName = 'Zenith Supply Chain Solutions', $fromEmail = null) {
+    $apiKey = 'GHsPYBg4m2x08FcA';
+    $apiUrl = 'https://api.brevo.com/v3/smtp/email';
     
-    try {
-        $socket = @fsockopen($smtpHost, $smtpPort, $errno, $errstr, 30);
-        if (!$socket) {
-            error_log("SMTP Connection failed: $errstr ($errno)");
-            return false;
-        }
-        
-        // Read greeting
-        $response = fgets($socket, 515);
-        
-        // Send EHLO
-        fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
-        $response = fgets($socket, 515);
-        
-        // Start TLS
-        fputs($socket, "STARTTLS\r\n");
-        $response = fgets($socket, 515);
-        
-        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
-            error_log("SMTP TLS failed");
-            fclose($socket);
-            return false;
-        }
-        
-        // Send EHLO again after TLS
-        fputs($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
-        $response = fgets($socket, 515);
-        
-        // Authenticate
-        fputs($socket, "AUTH LOGIN\r\n");
-        $response = fgets($socket, 515);
-        
-        fputs($socket, base64_encode($smtpUsername) . "\r\n");
-        $response = fgets($socket, 515);
-        
-        fputs($socket, base64_encode($smtpPassword) . "\r\n");
-        $response = fgets($socket, 515);
-        
-        if (substr($response, 0, 3) !== '235') {
-            error_log("SMTP Authentication failed: $response");
-            fclose($socket);
-            return false;
-        }
-        
-        // Send MAIL FROM
-        fputs($socket, "MAIL FROM: <{$fromEmail}>\r\n");
-        $response = fgets($socket, 515);
-        
-        // Send RCPT TO
-        fputs($socket, "RCPT TO: <{$to}>\r\n");
-        $response = fgets($socket, 515);
-        
-        // Send DATA
-        fputs($socket, "DATA\r\n");
-        $response = fgets($socket, 515);
-        
-        // Generate unique message ID to prevent spam
-        $messageId = '<' . md5(uniqid(time())) . '@zenithscs.com.au>';
-        
-        // Send headers and body with anti-spam measures
-        $message = "From: {$fromName} <{$fromEmail}>\r\n";
-        $message .= "To: {$to}\r\n";
-        $message .= "Subject: {$subject}\r\n";
-        $message .= "Message-ID: {$messageId}\r\n";
-        $message .= "Date: " . date('r') . "\r\n";
-        $message .= "MIME-Version: 1.0\r\n";
-        $message .= "Content-Type: text/html; charset=UTF-8\r\n";
-        $message .= "Content-Transfer-Encoding: 8bit\r\n";
-        $message .= "X-Mailer: Zenith SCS\r\n";
-        $message .= "X-Priority: 1\r\n";
-        $message .= "Importance: High\r\n";
-        $message .= "\r\n";
-        $message .= $body . "\r\n";
-        $message .= ".\r\n";
-        
-        fputs($socket, $message);
-        $response = fgets($socket, 515);
-        
-        // Send QUIT
-        fputs($socket, "QUIT\r\n");
-        fclose($socket);
-        
-        return true;
-    } catch (Exception $e) {
-        error_log("SMTP Error: " . $e->getMessage());
-        return false;
+    // Use sender email - Brevo verified email
+    if ($fromEmail === null) {
+        $fromEmail = 'logozodev@gmail.com'; // Use verified sender email
     }
+    
+    // Brevo API expects JSON payload
+    $payload = [
+        'sender' => [
+            'name' => $fromName,
+            'email' => $fromEmail
+        ],
+        'to' => [
+            [
+                'email' => $to,
+                'name' => ''
+            ]
+        ],
+        'subject' => $subject,
+        'htmlContent' => $body,
+        'textContent' => strip_tags($body),
+        'replyTo' => [
+            'email' => $fromEmail,
+            'name' => $fromName
+        ]
+    ];
+    
+    // Log the payload for debugging (remove sensitive data in production)
+    error_log("Brevo API Request - To: $to, From: $fromEmail");
+    
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($payload));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Content-Type: application/json',
+        'api-key: ' . $apiKey,
+        'Accept: application/json'
+    ]);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $error = curl_error($ch);
+    $curlInfo = curl_getinfo($ch);
+    curl_close($ch);
+    
+    // Log detailed error information
+    if ($error) {
+        error_log("Brevo cURL Error: " . $error);
+        return ['success' => false, 'error' => 'Connection error: ' . $error];
+    }
+    
+    // Parse response
+    $responseData = json_decode($response, true);
+    
+    // Log response for debugging
+    error_log("Brevo Response - HTTP Code: $httpCode, Response: " . substr($response, 0, 1000));
+    
+    if ($httpCode === 201) {
+        // Brevo returns 201 Created on success
+        if (isset($responseData['messageId'])) {
+            error_log("Brevo email sent successfully to: $to, Message ID: " . $responseData['messageId']);
+            return ['success' => true, 'messageId' => $responseData['messageId']];
+        }
+        // Sometimes Brevo returns success without messageId
+        if (empty($responseData) || (isset($responseData['messageId']) && $responseData['messageId'])) {
+            error_log("Brevo email sent successfully to: $to");
+            return ['success' => true];
+        }
+    }
+    
+    // Handle errors with detailed messages
+    $errorMessage = 'Unknown error';
+    if ($httpCode === 401) {
+        $errorMessage = 'Authentication failed. Check API key.';
+        error_log("Brevo Authentication failed. Check API key.");
+    } elseif ($httpCode === 400) {
+        if (isset($responseData['message'])) {
+            $errorMessage = $responseData['message'];
+        } elseif (isset($responseData['code'])) {
+            $errorMessage = 'Bad Request: ' . $responseData['code'];
+        } else {
+            $errorMessage = 'Bad Request. Check sender email and payload.';
+        }
+        error_log("Brevo Bad Request: " . json_encode($responseData));
+    } elseif ($httpCode === 402) {
+        $errorMessage = 'Payment required. Check your Brevo account credits.';
+        error_log("Brevo Payment required.");
+    } elseif ($httpCode === 403) {
+        $errorMessage = 'Forbidden. Check API permissions.';
+        error_log("Brevo Forbidden.");
+    } elseif ($httpCode === 404) {
+        $errorMessage = 'API endpoint not found.';
+        error_log("Brevo API endpoint not found.");
+    } else {
+        $errorMessage = "API error (HTTP $httpCode)";
+        if (isset($responseData['message'])) {
+            $errorMessage = $responseData['message'];
+        }
+        error_log("Brevo API failed. HTTP Code: $httpCode, Response: " . substr($response, 0, 1000));
+    }
+    
+    return ['success' => false, 'error' => $errorMessage, 'httpCode' => $httpCode, 'response' => $responseData];
 }
 
 // Require admin role for certain endpoints

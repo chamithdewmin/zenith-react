@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4B60FF"/>
+      <stop offset="100%" stop-color="#923DFF"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0F1330"/>
+  <rect x="60" y="60" width="1080" height="510" rx="40" fill="url(#g)" opacity="0.2"/>
+  <text x="120" y="300" font-family="Space Grotesk, sans-serif" font-size="72" fill="#FFFFFF" font-weight="700">
+    Zenith Analytics
+  </text>
+  <text x="120" y="380" font-family="Space Grotesk, sans-serif" font-size="32" fill="#D6E0FF">
+    Vendor Replenishment • Forecasting • Retail Analytics
+  </text>
+</svg>
+

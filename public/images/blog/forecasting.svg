@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" rx="32" fill="#E8FFF4"/>
+  <path d="M140 320 C220 260, 280 200, 360 220 C420 240, 460 140, 520 180 C580 220, 640 120, 700 180" stroke="#00A86B" stroke-width="16" fill="none" stroke-linecap="round"/>
+  <circle cx="360" cy="220" r="18" fill="#00A86B"/>
+  <circle cx="520" cy="180" r="18" fill="#00A86B"/>
+  <circle cx="700" cy="180" r="18" fill="#00A86B"/>
+  <text x="60" y="80" font-family="Space Grotesk, sans-serif" font-size="40" fill="#0F3D2E" font-weight="600">
+    Forecasting for Growth
+  </text>
+</svg>
+
